@@ -45,7 +45,7 @@ print 'Nous sommes mercredi'; // print est une autre instruction d'affichage. Pa
         VARIABLES
 -----------------------*/
 echo '<hr><h2>Variables : types / Déclaration / affectation </h2>';
-// une variable est un espace nommé permettant de conserver une valeur
+// Une variable est un espace nommé permettant de conserver une valeur
 // on déclare toujours une variable avec le sign $ suivi du nom de la variable
 // ex : $a -> ok ----- $2a -> erreur, jamais de chiffre après $, pas d'accent, pas d'espace
 
@@ -120,7 +120,7 @@ echo $prenom2;  // -> Grégory Adeline : ajoute la nouvelle valeur sans remplace
 -----------------------*/
 echo '<hr><h2>Constante et constante magique</h2>';
 
-// une constante tout comme une variable permet de conserver une valeur, mais comme son nom l'indique,
+// Une constante tout comme une variable permet de conserver une valeur, mais comme son nom l'indique,
 // elle est constante ! càd que l'on ne pourra pas la mofifier durant l'exécution du script. 
 // Contrairement à une variable, qui elle peut varier !! 
 
@@ -162,7 +162,7 @@ echo $a * $b . "<br>";  // 20
 echo $a / $b . "<br>";  // 5
 
 
-// opérations/affectation
+// Opérations/Affectation
 $a = 10; $b = 2;
 
 $a += $b;   // => $a = $a + $b
@@ -276,12 +276,135 @@ else
 {
     echo "3 - tout le monde a faux<br>";
 }
-// si la 1ère condition est respectée, avec le ELSEIF le script stop le script malgré que la 2è condition soit respectée.
-// on peut déclarer une condition ac plusieurs elseif, en revanche il n'y aqu'un seul cas par défaut "else".
+// Si la 1ère condition est respectée, avec le ELSEIF le script stop le script malgré que la 2è condition soit respectée.
+// On peut déclarer une condition ac plusieurs elseif, en revanche il n'y aqu'un seul cas par défaut "else".
 
 // -------------------------------------------------------------
 // condition exclusive
 if($a == 10 XOR $b == 6)
 {
-    echo "ok condition exclusive";  // ac XOR SEULEMENT une des 2 doit ê respectée
+    echo "ok condition exclusive<br>";  // ac XOR SEULEMENT une des 2 doit ê respectée
+    // Si les 2 conditions sont bonnes ou si les conditionsq sont mauvaises, nous ne rentrons pas ici
 }
+
+// -------------------------------------------------------------
+// Forme contractée : 2è possibilité d'écriture d'un if
+echo ($a == 10) ? "A est égal à 10<br>" : "A n'est pas égal à 10<br>";
+// Le ? remplace le if et les ':' remplacent le else
+
+
+// -------------------------------------------------------------
+// comparaison
+$vara = 1;
+$varb = "1";
+if($vara == $varb)
+{
+    echo "il s'agit de la même chose<br>";
+}
+// Avec la présence du ===, la condition n'est pas respectée car les valeurs sont les mêmes 
+// mais les types sont différents.
+// Avec le ==, le test fct car les valeurs sont les mêmes.
+// == comparaison de la valeur
+// === comapraison valeur et type
+
+
+// -------------------------------------------------------------
+echo '<hr><h2>Condition switch</h2>';
+$couleur = "jaune";
+switch($couleur)
+{
+    case 'bleu':
+    echo "Vous aimez le bleu";
+    break;
+
+    case 'rouge':
+    echo "Vous aimez le rouge";
+    break;
+
+    case 'vert':
+    echo "Vous aimez le vert";
+    break;
+
+    default:
+    echo "Vous n'aimez rien";
+    break;
+}
+echo "<br>";
+// Les case représentes les différents cas ds lesquels nous pouvons potentiellement tomber, 
+// break stop l'exécution du script si un des cas est vérifié
+// Si un des cas n'est pas vérifié, nous tombons dans le cas par défaut "default"
+
+// Exo : pouvez-vous faire la même chose que le switch avec des else ?
+$couleur = "jaune";
+
+if ($couleur == 'bleu')
+{
+    echo "Vous aimez le bleu<br>";
+}
+elseif ($couleur == 'rouge')
+{
+    echo "Vous aimez le rouge<br>";
+}
+elseif ($couleur == 'vert')
+{
+    echo "Vous aimez le vert<br>";
+}
+else
+{
+    echo "Vous n'aimez rien<br>";
+}
+
+
+/* ----------------------------------
+    FONCTIONS PREDEFINIES
+-----------------------------------*/
+echo '<hr><h2>Fonction prédéfinie : traitement des chaines</h2>';
+//une fonction prédéfinie permet de réaliser un traitement spécifiq
+
+echo "Date : ";
+echo date ("d/m/Y") . "<br>";  // ex. de fct prédéfinie retournant la date du jr.
+// Qd on utilise une fct prédéfinie, tjrs se poser la question : 
+// quels paramètres doit-on envoyer à cette fct et surtout savoir ce qu'elle retourne.
+// > Penser à consulter la doc  ! (pour voir formats de date  de la fct Date)
+
+// -------------------------------------------------------------
+$email1 = "a2line8@yahoo.fr";
+echo strpos($email1, "@"); // retourne la position du caract. "@" dans la chaine de c.
+// strpos est une fct prédéfinie peemettant de trouver un caractère spécifique ds une chaine
+/*
+    arguments : 
+    1 - nous devons lui fournir la chaine ds laquelle nous souahitons chercher un signe
+    2 - nous lui donnons l'info à chercher
+*/
+echo "<br>";
+$email2 = "bonjour";
+echo strpos($email2, "@"); // > cette lg ne sort rien pourtant il y a bien qqch à l'intérieur : FALSE !! >>>
+var_dump(strpos($email2, "@")); // Grâce à var_dump on aperçoit le FALSE si le caractère "@" n'est pas trouvé. 
+// var_dump est donc une instruction d'affichage améliorée, on l'utilise régulièrement en phase de développement.
+
+echo "<br>";
+// -------------------------------------------------------------
+$phrase = "Mettez du texte à cet endroit";
+echo iconv_strlen($phrase); // -> 29 
+/*
+    iconv_strlen() est une fct prédéfinie permettant de retourner la taille d'ubne chaine.
+    Succès > INT
+    Echec > boolean FALSE
+    Contexte > nous pourrons l'utiliser pour savoir si le pseudo et le mdp lors d'une inscription ont des tailles conformes
+*/
+
+echo "<br>";
+// -------------------------------------------------------------
+$texte = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo";
+
+echo substr($texte, 0, 20) . "... <a href=''> Lire la suite </a>";
+// retourne les 20 premiers caract. de la chaine et affiche "Lire la suite
+/*
+    substr() est une fct prédéfinie permettant de retourner une partie de la chaine.
+    arguments : 
+    1 - La chaine à couper
+    2 - la position de début
+    3 - La position de fin
+    contexte : sur certains articles, on a le début en accroche et un lieu pour voir la suite de l'article.
+*/
