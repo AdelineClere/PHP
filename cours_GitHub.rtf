@@ -1,0 +1,190 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 DIN-Regular;\f1\fnil\fcharset0 AppleColorEmoji;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red9\green80\blue208;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c41176\c85098;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16660\viewh26500\viewkind0
+\deftab720
+\pard\pardeftab720\sl312\slmult1\partightenfactor0
+
+\f0\b\fs48 \cf0 \expnd0\expndtw0\kerning0
+Cr\'e9er DOSSIER GitH
+\b0\fs32 \
+- Xamp / htdocs\
+- Cr\'e9er dossier 'site test'\
+- creer son fichier index.html > ouvrir > !DOCTYPE  etc ....\
+ \
+
+\b Console :
+\b0 \
+	- $ 
+\b git init
+\b0 \
+	-\'a0$ 
+\b git status	
+\b0 (pour voir..)\
+	-\'a0$ 
+\b git config --global user.name '
+\b0 Adeline CLERE' (=> dire \'e0 qui est le dossier)\
+	-\'a0$ 
+\b git config --global user.mail '{\field{\*\fldinst{HYPERLINK "mailto:adeline@clere.me"}}{\fldrslt 
+\b0 \cf3 \ul \ulc3 adeline@clere.me}}
+\b0 '\
+Prendre ligne sur 
+\b site GitHub
+\b0  (\'a0git remote add origin\'a0{\field{\*\fldinst{HYPERLINK "https://github.com/AdelineClere/site-test"}}{\fldrslt \cf3 \ul \ulc3 https://github.com/AdelineClere/site-test}})\'a0
+\f1 \uc0\u9888 \u65039 
+\f0 \
+Retour console, la coller :\'a0\
+	- $ 
+\b git remote add origin
+\b0  {\field{\*\fldinst{HYPERLINK "https://github.com/AdelineClere/site-test.git"}}{\fldrslt \cf3 \ul \ulc3 https://github.com/AdelineClere/site-test.git}}\'a0 \'a0(cr\'e9er le dossier dans gitH)\
+	- $ 
+\b git add --all
+\b0  					=\'a0prend ts les fichiers de mon projet)\
+	- $ 
+\b git commit -m '
+\b0 1\'e8re version du site
+\b '
+\b0 	= 1er commit de mon site) (-m = message)\
+	- $
+\b  git status
+\b0  (voir si fichiers en attente, modifi\'e9 etc.)\
+	- $\'a0
+\b git push -u origin master
+\b0 			=\'a0pousse tous les fichiers vers gitH (-u pas oblig les fois suivantes)\
+\'a0\
+> sur mon iMac : \
+GitBash / Cloner ac un repository local > choisir le dossier cr\'e9\'e9 ailleurs , et lieu local : Mamp/htdocs\
+\
+\
+
+\f1 \
+\uc0\u9888 \u65039 
+\f0 \'a0Ensuite, cr\'e9er des branches \'e0 chaque intervention pour ne pas travailler sur le master :\
+
+\b\fs48 Cr\'e9er une BRANCHE pour modifs 
+\f1\b0\fs32 \uc0\u9888 \u65039 
+\f0 \'a0
+\b\fs48 pas travailler sur master\'a0\'a0
+\b0 \
+
+\fs32 \
+	-\'a0$ 
+\b git branch
+\b0  nomBranche	\
+	- $ 
+\b git branch					
+\b0 = liste master, centrage : montre les diff\'e9rentes branches\'a0existantes\
+	- $ 
+\b git checkout
+\b0  nomBranche		= on se positionne sur cette branche\
+\'a0 \'a0 \'a0 \'a0 \'a0 	--> on a fait nos changements sur index.html\
+	- $ 
+\b git diff\'a0
+\b0 \'a0 \'a0 \'a0					= affiche ce qu'on a modifi\'e9\
+	- $ 
+\b git add --all
+\b0 \
+	-\'a0$ 
+\b git commit -m '
+\b0 nomCommit
+\b '
+\b0 \
+	-\'a0$ 
+\b git status
+\b0  (pour voir)\
+	- $ 
+\b git push origin
+\b0  nomBranche 	= envoie le nouveau commit sur gitH\
+\'a0\
+\pard\pardeftab720\sl312\slmult1\partightenfactor0
+\cf0 + Aller sur compte gitHub :
+\f1 \
+	\uc0\u9888 \u65039 	
+\f0 > faire 
+\b Compare &\'a0pull request
+\b0  sur la nouvelle branche..\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0	     (On peut mettre messg \'e0 qqn ; on voit trv avant et les modif !) Si ok =>\
+			-> 
+\b create pull request
+\b0 \
+			-> 
+\b merge pull request
+\b0 \
+			-> 
+\b confirm merge
+\b0 \
+			-> 
+\b delete branch
+\b0  	(c mieux, plus propre)\
+\'a0\
++  Suppr aussi sur console :\
+	- $ 
+\b git checkout maste
+\b0 r (= retourner sur master)\
+	- $ 
+\b git branch -D
+\b0  nomBranche\'a0 \'a0(suppr branche)\'a0 \'a0(ou -d)gh\
+	- $ 
+\b git pull origin master
+\b0  > on r\'e9cup\'e8re tout (donc ttes les modifs faites) pour le\'a0r\'e9cup en\'a0local sur notre ordi\
+\'a0\
+\
+\
+\pard\pardeftab720\sl312\slmult1\partightenfactor0
+
+\b\fs48 \cf0 PARTAGER projet ac qqn d'autre
+\b0\fs32 \
+\pard\pardeftab720\sl312\slmult1\partightenfactor0
+\cf0 \
+Aller sur compte gitHub :\
+> 
+\b settings
+\b0 \
+> 
+\b inviter
+\b0  collaborateur par nom : AV-DV-87\'a0m'invit > je re\'e7ois mail d'invit > je clone son dossier chez moi\'a0:\
+\pard\pardeftab720\sl312\slmult1\partightenfactor0
+
+\b \cf0 Console
+\b0 \
+	- $ 
+\b git clone {\field{\*\fldinst{HYPERLINK "https://github.com/AV-DV-87/git-test.git"}}{\fldrslt \cf3 \ul \ulc3 https://github.com/
+\b0 AV-DV-87/git-test.git}}
+\b0 \'a0 \'a0 \'a0 \'a0 \'a0 (url de son projet sur gitH)\
+
+\b Configurer :
+\b0 \
+	- $ 
+\b git config --global user.name '
+\b0 Adeline CLERE'\
+	- $ 
+\b git config --global user.mail '{\field{\*\fldinst{HYPERLINK "mailto:adeline@clere.me"}}{\fldrslt 
+\b0 \cf3 \ul \ulc3 adeline@clere.me}}
+\b0 \
+	- $ 
+\b git branch
+\b0  modifh1 => cr\'e9er sa propre branche'\
+	- $ 
+\b git branch
+\b0 \
+	- $ 
+\b git checkout
+\b0  modifh1\
+\'a0\
+J'ai invit\'e9 qqn :\
+
+\b gitH :
+\b0 \
+	> je me mets sur son commit > 
+\b merge
+\b0 \
+Puis 
+\b console
+\b0  :\
+	-> $ 
+\b git pull origin master
+\b0  	(pour r\'e9cup\'e9rer le commit de l'autre qu'on a merg\'e9 sur gitH)\
+\
+\
+}
