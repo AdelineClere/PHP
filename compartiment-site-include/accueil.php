@@ -1,6 +1,6 @@
 <?php
 require_once("inc/header.php");
-require_once("inc/nav.php");
+include_once("inc/nav.php");
 /*
 require_once() && include_once() :
 Aucune différence entre les 2 sauf en cas d'erreur sur le nom de fichier :

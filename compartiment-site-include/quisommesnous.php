@@ -1,6 +1,6 @@
 <?php
 require_once("inc/header.php");
-require_once("inc/nav.php");
+include_once("inc/nav.php");
 ?>
     <section>
         Voici le contenu de la page quisommesnous<br>

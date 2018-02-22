@@ -443,7 +443,7 @@ separation();   // exécution de la fct
 function bonjour ($qui)     // $qui ne sort pas de nulle part :permet de prévoir un argument, 
 // il s'agit d'une variable de réception, pas besoin de lui attribuer une valeur
 {
-    echo "Bonjour $qui <br>";
+    echo "Salut $qui <br>";
 }
 bonjour("Pierre");      //  --> Pierre
 $prenom = "Adeline";    
@@ -478,7 +478,7 @@ $pays = "France";       // var déclarée ds l'espace global = à l'ext. d'une f
 function affichagePays()
 {
    global $pays;        // Pour importer une var déclarée en global vers l'espace local => 'global'
-   echo $pays;
+   echo $pays;          // inutile ?
 }
 affichagePays();        // France : exécution de la fct
 // On ne peut pas déclarer 2 fois une fct ac le même nom.
@@ -517,27 +517,7 @@ function meteo($saison, $temperature)
 }
 */
 
-
 // EXO : gérer le 's' de degrés    
-function meteo($saison, $temperature)
-{
-    if ($temperature == 0 || $temperature == 1 || $temperature == -1)
-    {
-        echo "Nous sommes en $saison et il fait $temperature degré<br>";
-    }   
-    else
-    {
-        echo "Nous sommes en $saison et il fait $temperature degrés<br>";
-    }
-}
-meteo("hiver", 0);
-meteo("été", 25);
-meteo("hiver", -10);
-meteo("hiver", 1);
-meteo("hiver", -1);
-
-
-// correc
 function exometeo($saison, $temperature)
 {
     echo "Nous sommes en $saison et il fait $temperature";
@@ -579,7 +559,7 @@ while($j < 3)
     if ($j == 2)
         echo $j;        // je ne rentre qu'une seule fois ici
     else
-        echo "$j---";   // dans ts les autres cason tombe ds le else ac l'incrémentation
+        echo "$j---";   // dans ts les autres cas on tombe ds le else ac l'incrémentation
         $j++;
 }   
 // {} : pas necess si UNE SEULE instruction dans un IF, else. Conseillé de les mettre en débutant.
@@ -594,7 +574,7 @@ for ($j = 0; $j < 16; $j++)     // valeur de départ ; condition d'entrée ; inc
     echo $j;
 }
 
-
+echo "<br>";
 // EXO : afficher 30 options via une boucle
 
 echo '<select>';
@@ -638,7 +618,7 @@ echo '<table border=1>';
             {
                 echo '<td>' . $z . '</td>';     // $z ne revient jamais à 0 puisqu'on incrémente à chq tour de boucle
                 $z++;       // (qd on a fini la 1ère boucle, on arrive à 9, 
-                //on repart à 1ère boucle lg 633, et on continue à incrémenter z > qui passe à 10 !)
+                //on repart à 1ère boucle lg 613, et on continue à incrémenter z > qui passe à 10 !)
             }
         echo '</tr>';
     }    
@@ -721,12 +701,12 @@ echo '<pre>'; print_r($tab); echo '</pre>'; // renvoi ça :
         )   */
 
 // EXO : tenter de sortir "Italie" en passant par le tableau ARRAY sans faire echo "italie" ;)
-echo($tab[1]) . "<hr>"; // -> Italie : On va crocheter à l'indice 1 du tablo de données ARRAY
+echo($tab[1]) . "<hr>"; // -> Italie :  On va crocheter à l'indice 1 du tablo de données ARRAY
 
 
 foreach($tab as $info) // $info : va parcourir/afficher 1 pays à chq tour de boucle
 // Le mot AS fait partie du langage et est oblilgatoire. $info vient parcourir la colonne des valeurs 
-//du tablo de données ARRAY, pour chaq tr de boucle, elle possède une valeur différente.
+// du tablo de données ARRAY, pour chaq tr de boucle, elle possède une valeur différente.
 {
     echo $info . "<br>";    // On affiche successivt les élts du tablo
 }   //affiche : 
@@ -741,7 +721,7 @@ foreach($tab as $info) // $info : va parcourir/afficher 1 pays à chq tour de bo
 foreach ($tab as $indice => $info) // qd 2 variables : la 1ère parcours la col des indices, 
                                    // la 2è parcourt la col des valeurs (infos)
 {
-    echo $indice . ' => ' . $info . '<br>';   // on affiche successivt l'indice en fct de la valeur
+    echo $indice . ' -> ' . $info . '<br>';   // on affiche successivt l'indice en fct de la valeur
 }       // affiche :   
             /*  0 => France
                 1 => Italie
@@ -764,7 +744,7 @@ echo '<pre>'; print_r($couleur); echo '</pre>' . "<hr>";
 
 // EXO : afficher successivt les données (indice, val) du tablo représenté par la $couleur
 foreach ($couleur as $indice => $valeur)
-echo $indice . ' => ' . $valeur . '<br>';
+echo $indice . ' = ' . $valeur . '<br>';
 
 echo 'Taille du tableau : ' . count($couleur) . "<br>"; // -> affiche 4
 echo 'Taille du tableau : ' . sizeof($couleur) . "<br>";
@@ -776,6 +756,7 @@ echo implode("-", $couleur);    // -> jaune-rouge-vert-bleu
 
 //--------------------------------------------------------------------
 echo '<hr><h2> Tableaux de données ARRAY multidimensionnel </h2>';
+
 $tab_multi = array(
              0 => array("prenom" => "Grégory", "nom" => "Lacroix"),
              1 => array("prenom" => "Adeline", "nom" => "Clere"),
@@ -804,13 +785,13 @@ echo $tab_multi[1] ["nom"];
 echo '<hr>';
 // EXO : extraire les valeurs des tableaux multi à l'aide de boucles
 
-foreach($tab_multi as $indice1 => $tableau) // [0] on parcourt tablo principal, 
-                         // au 1er sous-tablo la boucle lit indice1 (=prenom)
+foreach($tab_multi as $premierIindice => $tableau) // [0] on parcourt tablo principal, 
+                         // au 1er sous-tablo la boucle lit premierIindice (=prenom)
 {
-    foreach($tableau as $indice2 => $valeurs)  // on est dans le 1er tablo, 
-                        // nvlle boucle foreach pour parcourir et lire undice2 (=nom)
+    foreach($tableau as $deuziemeIndice => $prenomNom)  // on est dans le 1er tablo, 
+                        // nvlle boucle foreach pour parcourir et lire deuziemeIndice (=nom)
     {
-        echo $valeurs . "<br>";
+        echo $prenomNom . "<br>";
     }
 }                   /*  Grégory
                         Lacroix
@@ -818,12 +799,11 @@ foreach($tab_multi as $indice1 => $tableau) // [0] on parcourt tablo principal,
                         Clere   */
 
 
-// 
 echo '<hr>';
-// EXO : extraire les valeurs des tableaux multi à l'aide de boucles
+// autre choz :
 
-foreach($tab_multi as $indice1 => $tableau) 
+foreach($tab_multi as $indice1 => $valeurs) 
 {
-        echo implode ("-", $tableau) . '<br>';                                  
+        echo implode ("-", $valeurs) . '<br>';                                  
         echo "<br>";
 }
