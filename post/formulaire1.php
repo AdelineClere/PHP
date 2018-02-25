@@ -3,17 +3,17 @@
         Les SUPERGLOBALES (http://php.net/manual/fr/language.variables.superglobals.php):
         Ce sont des variables de type ARRAY qui sont prédéfinies dans le code et qui permettent 
         de véhiculer des données.
-        On peut les appeler partout ds le code, dans les espaces local & global.
+        ⚠️ On peut les appeler partout ds le code, dans les espaces local & global.
         $_GLOBALS - $_SERVEUR - $_GET - $_POST - $_FILES - $_COOKIE - $_SESSION - $_REQUEST - $_ENV
     */
     // ex. : echo '<pre>'; print_r($_SERVER); echo '</pre>'; 
     // affiche (ss forme ARRAY) des infos sur notre serveur local XAMPP (MAMPP)
 
     echo '<pre>'; print_r($_POST); echo '</pre>'; 
-    // Les données que l'on rentre en pseudo et mdp se stock la !!
+    // ⚠️ Les données que l'on rentre en pseudo et mdp se stock la !!
 
     // EXO : afficher les données saisies ds le formulaire ac affichage classiq
-    if($_POST)  // si je rentre ds condition le formulaire est soumis, je stock données ds cette superglobale
+    if($_POST)  // ⚠️ si je clique sur le bouton connexion alors on rentre dans le if
     {
         echo '<hr>Pseudo : ' .  $_POST['pseudo'] . '<br>';
         echo 'Mot de passe : ' . $_POST['mdp'] . '<br>';
@@ -37,9 +37,9 @@
     <body>
         <h1>Formulaire de connexion</h1>
         <hr>
-        <form method="post" action=""> 
-            <!-- METHOD : comment vont circuler les données (on peut récup données depuis le formulaire (= POST) 
-                 ou url (= méthode GET)) - ACTION : URL de destination -->
+        <form method="post" action="">  <!-- ⚠️  ACTION : URL de destination -->
+            <!-- ⚠️  METHOD : comment vont circuler les données (on peut récup données depuis le formulaire (= POST) 
+                 ou par url ⚠️  (= méthode GET)) -->
             <label for="pseudo">Pseudo</label>
             <input type="text" id="pseudo" name="pseudo" placeholder="pseudo">  
             <br><br> <!-- l'attribut 'name' est indisp. pr exploiter les données en PHP -->
