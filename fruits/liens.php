@@ -9,42 +9,34 @@
 */
 
 
-// superglobal ⚠️  $_GET aura les infos de tous les fruits contenues dans l'url !!
-/*
-    echo '<pre>'; print_r($_GET); echo '</pre>'; 
-
-                    Array
-                    (
-                        [id_produit] => cerise
-                        [prix] => 5.76
-                    )
-                
-*/       
-
-
-
-if($_GET)  
-{
-    echo '<h1>' . $_GET['id_produit'] . ' : ' . '</h1>';
-
-    foreach($_GET as $indice => $valeur)
-    {
-        if($indice != 'id_produit')    // > afficher que le pdt où id_ correspond
-        {
-            echo $indice . ' : ' . $valeur . "<br>";
-        }
-    }
-}
 
 require_once("fonction.inc.php");
-echo calcul("cerises", 2000);
-
-
-
-
-
-
+               
+if(isset($_GET['choix']))       // on récup choix dans l'url
+{
+    echo '<pre>'; print_r($_GET); echo '</pre>'; 
+    echo'Fruit recup : ' . $_GET['choix'] . '<br>'; // fruit recup = choix fait
+    echo calcul($_GET['choix'], 1000) . '<br>';     // on passe le fruit choisi dans la fct calcul
+}
 
 
 
 ?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>liensFruits</title>
+
+    </head>
+    <body>
+        <h1>Liens fruits</h1>
+        <a href="?choix=cerises">Cerises</a><br>     
+        <!-- '?choix=cerises' = envoie info dans l'url, la sur même pg. dc pas de nom de fichier avt '?' -->
+        <a href="?choix=bananes">Bananes</a><br>
+        <a href="?choix=pommes">Pommes</a><br>
+        <a href="?choix=peches">Pêches</a><br>
+
+    </body>
+</html>

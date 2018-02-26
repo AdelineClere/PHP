@@ -25,19 +25,3 @@ function calcul ($fruit, $poids)
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <title>liensFruits</title>
-
-    </head>
-    <body>
-        <h1>Bienvenue chez votre primeur</h1>
-        <a href="liens.php?id_produit=cerises&prix=5.76">Cerises</a><br>
-        <a href="liens.php?id_produit=bananes&prix=1.09">Bananes</a><br>
-        <a href="liens.php?id_produit=pommes&prix=1.61">Pommes</a><br>
-        <a href="liens.php?id_produit=peches&prix=2.64">Pêches</a><br>
-
-    </body>
-</html>

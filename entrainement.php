@@ -760,7 +760,7 @@ echo implode("-", $couleur);    // -> jaune-rouge-vert-bleu
 echo '<hr><h2> Tableaux de données ARRAY multidimensionnel </h2>';
 
 $tab_multi = array(
-             0 => array("prenom" => "Grégory", "nom" => "Lacroix"),
+             0 => array("prenom" => "Grégory", "nom" => "Lacroix"), // à l'indice prénom définie moi la valeur __> Greg...
              1 => array("prenom" => "Adeline", "nom" => "Clere"),
 );
 /*
@@ -821,7 +821,7 @@ foreach($tab_multi as $sousTablo => $valeurs)
          
 
 echo '<hr>';
-foreach($tab_multi as $sousTablo => $valeurs)
+foreach($tab_multi as $sousTablo => $valeurs) 
 {
 	foreach($valeurs as $indice => $valeur)
 	{
@@ -837,3 +837,35 @@ foreach($tab_multi as $sousTablo => $valeurs)
 		echo $indice . ' - ' . $valeur;
 	}
 }
+
+
+
+/* ----------------------------
+        CLASSE ET OBJET
+------------------------------*/
+echo '<hr><h2> Classe et objet </h2>';
+/*
+ un objet est un autre type de données. Un peu à la manière d'un ARRAY, il permet de regrouper des infos. 
+ Cependant cela va bcp + loin car on peut y déclarer ⚠️ des VARIABLES (appelées : PROPRIETES) 
+ mais aussi ⚠️des FONCTIONS (appelées : METHODES)
+*/
+class Etudiant              // ex : class = plan de la voiture
+{
+    public $prenom = "Grégory"; // public permet de préciser que l'élt sera visible de partout 
+    // (il y a aussi protected et private)
+    public $age = 25;           // ⚠️ déclaration d'une PROPRIETE public️ 
+    public function Pays()      // ⚠️ déclaration d'une FONCTION public  
+    {   
+        return "France";
+    }
+}
+$objet = new Etudiant();    // on a un objet issu de la class Etudiant (ex : objet = toutes les pc de la voiture assemblées
+// NEW est un mot-clé pour instancier la class et en faire un objet. 
+// Ce qui nous permet de la déployer afin que l'on puisse s'en servir. 
+// On se sert de ce qui est dans la class via l'objet.
+echo '<pre>'; var_dump($objet); echo '</pre>'; // => pour le voir
+
+echo $objet->prenom . '<br>';   // '->' ⚠️ pour atteindre une propriété de la class via l'objet 
+// Nous pouvons piocher dans un ARRAY avec les crochets, piocher dans un objet avec une flèche.
+echo $objet->age . '<br>'; 
+echo $objet->pays() . '<br>';   // appel d'une méthode tjrs avec une ()
