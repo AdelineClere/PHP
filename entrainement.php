@@ -675,8 +675,8 @@ echo '<pre>'; print_r($liste); echo '</pre>'; // ⚠️ renvoi ça :
         )   */
 
 // ⚠️  var_dump et print_r sont des instructions d'affichage améliorées.
-// ⚠️ pre = balise html pour formater texte = mettre en forme la sortie du print_r ou var_dump
-// ⚠️ Contexte : qd on récup des infos en BDD, on les retrouvera sous forme d'ARRAY
+// ⚠️  pre = balise html pour formater texte = mettre en forme la sortie du print_r ou var_dump
+// ⚠️  Contexte : qd on récup des infos en BDD, on les retrouvera sous forme d'ARRAY
 
 
 //--------------------------------------------------------------------
@@ -847,7 +847,7 @@ echo '<hr><h2> Classe et objet </h2>';
 /*
  un objet est un autre type de données. Un peu à la manière d'un ARRAY, il permet de regrouper des infos. 
  Cependant cela va bcp + loin car on peut y déclarer ⚠️ des VARIABLES (appelées : PROPRIETES) 
- mais aussi ⚠️des FONCTIONS (appelées : METHODES)
+ mais aussi ⚠️ des FONCTIONS (appelées : METHODES)
 */
 class Etudiant              // ex : class = plan de la voiture
 {
@@ -859,8 +859,8 @@ class Etudiant              // ex : class = plan de la voiture
         return "France";
     }
 }
-$objet = new Etudiant();    // on a un objet issu de la class Etudiant (ex : objet = toutes les pc de la voiture assemblées
-// NEW est un mot-clé pour instancier la class et en faire un objet. 
+$objet = new Etudiant();    // ⚠️ on a un objet issu de la class Etudiant (ex : objet = toutes les pc de la voiture assemblées
+// NEW est un mot-clé pour INSTANCIER la class et en faire un objet. 
 // Ce qui nous permet de la déployer afin que l'on puisse s'en servir. 
 // On se sert de ce qui est dans la class via l'objet.
 echo '<pre>'; var_dump($objet); echo '</pre>'; // => pour le voir

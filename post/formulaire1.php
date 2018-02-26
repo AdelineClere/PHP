@@ -38,7 +38,7 @@
         <h1>Formulaire de connexion</h1>
         <hr>
         <form method="post" action="">  <!-- ⚠️  ACTION : URL de destination -->
-            <!-- ⚠️  METHOD : comment vont circuler les données (on peut récup données depuis le formulaire (= POST) 
+            <!-- ⚠️  METHOD : comment vont circuler les données (on peut récup données depuis le formulaire ⚠️ = POST) 
                  ou par url ⚠️  (= méthode GET)) -->
             <label for="pseudo">Pseudo</label>
             <input type="text" id="pseudo" name="pseudo" placeholder="pseudo">  

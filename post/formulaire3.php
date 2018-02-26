@@ -19,7 +19,8 @@
     <body>
         <h1>Formulaire 3</h1>
         <hr>
-        <form method="post" action="formulaire4.php"> <!-- method : comment vont circuler les données , action : URL de destination -->
+        <form method="post" action="formulaire4.php"> 
+        <!-- ⚠️  method : comment vont circuler les données , action : ⚠️  ici par URL de destination -->
 
             <label for="pseudo">Pseudo</label>
             <input type="text" id="pseudo" name="pseudo" placeholder="pseudo">

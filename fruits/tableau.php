@@ -26,43 +26,49 @@ echo '<pre>'; print_r($tab_poids); echo '</pre>';
 // Réponse 4
 echo calcul($tab_fruits[0], $tab_poids[1]) . '<hr>'; 
 
+
 // Réponse 5
 foreach($tab_poids as $indice => $valeur)
 {
-    echo calcul($tab_fruits[0], $valeur);
+    echo calcul($tab_fruits[0], $valeur);   // on multiplie le fruit[0] à chaque nouvelle $poids correspondant à chaque passage de boucle
 }
 echo '<hr>';
 
+
 // Réponse 6
-foreach($tab_poids as $poids) // 1er tour, 1er poids _ 2è tour, 2e poids ...
+foreach($tab_poids as $poids) // ⚠️ 1er tour, 1er poids _ 2è tour, 2e poids ...
 {
-    foreach($tab_fruits as $fruit) // 1er tour, parcourt ici ts les fruits jusqu'à ce quil n'y en ai plus > repart en 2è tour au dessus....
+    foreach($tab_fruits as $fruit) // ⚠️ 1er tour, parcourt ici ts les fruits jusqu'à ce quil n'y en ai plus > repart en 2è tour au dessus....
     {
     echo calcul($fruit, $poids) . '<br>';
     }
     echo '<hr>';
 }
 
+
 // Réponse 7
 echo "<table border=1><tr>";  
     echo "<th>Poids</th>";
     foreach($tab_fruits as $indice_fruit => $fruit)
     {
-        echo "<th>$fruit</th>";      // 1ère lg des fruits affichée
+        echo "<th>$fruit</th>";      // ⚠️ 1ère lg des fruits affichée
     }
     echo '</tr>';
-    foreach($tab_poids as $poids)      
-    {
-        echo '<tr>';                 // <tr> déclare lg
-        echo "<th>$poids g</th>";      // la boucle parcourt chaq poids et va à la lg à chaq poids pour l'afficher
-
-        foreach($tab_fruits as $fruit)  // on va appeler les $fruit pour les passer en calcul ac les $poids
+    
+        foreach($tab_poids as $poids)      
         {
-            echo "<td>" . calcul($fruit, $poids) . "</td>"; // 
+            echo '<tr>';                 // ⚠️ <tr> déclare lg
+            echo "<th>$poids g</th>";      // la boucle parcourt chaq poids et va à la lg à chaq poids pour l'afficher
+
+            foreach($tab_fruits as $fruit)  // ⚠️ on va appeler les $fruit pour ... 
+            {
+                echo "<td>" . calcul($fruit, $poids) . "</td>"; // ⚠️  ...les passer en calcul ac les $poids 
+            }
+            echo '</tr>';
         }
-        echo '</tr>';
-    }
 echo '</tr></table>';
+
+
 
 
 ?>

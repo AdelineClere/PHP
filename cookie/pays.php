@@ -1,39 +1,39 @@
 <h1>Votre langue :</h1>
 <ul>
-    <li><a href="?pays=fr">France</a></li>   <!-- ?pays=fr -> envoie l'info dans url -->
+    <li><a href="?pays=fr">France</a></li>   <!-- ⚠️  ?pays=fr -> envoie l'info dans url -->
     <li><a href="?pays=es">Espagne</a></li>
     <li><a href="?pays=an">Angleterre</a></li>
     <li><a href="?pays=it">Italie</a></li>
 </ul>
 
 <?php
-if(isset($_GET['pays']))  // si un pays est passé dans url c'est que nous avons cliqué sur un lien
+
+if(isset($_GET['pays']))  // ⚠️  si un pays est passé dans url c'est que nous avons cliqué sur un lien
 {
-    $pays = $_GET['pays'];   // alors je vais stocker l'info dans une variable
+    $pays = $_GET['pays'];   // ⚠️  alors je vais stocker l'info dans une variable
 }
-elseif(isset($_COOKIE['pays']))   // on ne rentre ds elseif uniqut si cond° if n'est pas passée et qu'un cookie existe
+elseif(isset($_COOKIE['pays']))   // on ne rentre ds elseif uniqut si cond° if n'est pas passée et qu'un cookie existe déjà
 // ex : on rentre ds cette condition si je reviens sur site 15 jrs plus tard
 {
     $pays = $_COOKIE['pays'];
 }
-else   // si 1ère fois sur site, pas encore de cookie créé, on rentre ds cette condition et cookie va être créé
-// sinon, c'est la 1ère visite sur le site
+else   // ⚠️  sinon = 1ère fois sur site, pas encore de cookie créé > va être créé
 {
     $pays = 'fr';
 }
 
 /*
-Un cookie est sauvegardé sur pc internaute et on y mettra infos d'importance mineure, des pref., traces de visite :
+Un cookie est sauvegardé sur PC internaute et on y mettra infos d'importance mineure, des pref., traces de visite :
 ex : pour vous proposez des suggestions de shoes ds le même modèle de dernière shoes que vous avez regardé sur une boutiq.
 Packe le cookie est directt conservé sur le PC d'internaute et qu'il peut se le faire voler, nous ne mettrons pas des infos
 comme pseudo et mdp.
 */
 
 echo time() . '<br>';
-$un_an = 365*24*3600;  // ⚠️on va donner durée de vie à cookie, en sec/an (on créé ceztte variable)
-setCookie("pays", $pays, time()+$un_an);  // on déclare (créé) le cookie : on donne nom / sa valeur / durée de vie (maintenant + 1an)
+$un_an = 365*24*3600;  // ⚠️  sec/an (on créé cette variable)
+setCookie("pays", $pays, time()+$un_an);
 // Dans tous les cas un cookie est créé car ce morceau de code n'est pas dans une condition.
-// ⚠️ setCookie() permet de créer un cookie : setCookie("nom", "valeur", durée de vie")
+// ⚠️ setCookie() permet de créer un cookie : setCookie("nom", "valeur", durée de vie"  (= maintenant + 1 an)
 
 switch($pays)
 {
@@ -56,9 +56,9 @@ switch($pays)
 
 
 /*
- vérif création du cookie > Goog Chrome > parma > param avancés / vider tout > cookie > afficher tous
- (⚠️créé & conservé côté navigateur = client dc)
- - même sans cliquer sur un lien (=> condition else lg 18)  >>> cookie créé (par défaut 'fr' dc)
- - so on clic sur un lien > contenu cookie change ...
+ vérif création du cookie > Goog Chrome > param > param avancés / vider tout > cookie > afficher tous
+ (⚠️ créé & conservé côté navigateur = client dc)
+ - même sans cliquer sur un lien (=> condition else lg 20)  >>> cookie créé (par défaut 'fr' dc)
+ - ⚠️ si on clic sur un lien > contenu cookie change ...
 ?>
 */

@@ -37,22 +37,36 @@ if($_POST)      // on récup données choisies
         <h1>Formulaire calcul fruits</h1>
         <hr>
         <form method="post" action=""> 
-        <!-- method = comment vont circuler les données, action : url de destination -->
+        
             <label for="fruit">Fruit</label>
-                <select name='fruit'>   <!-- garde le fruit choisi affiché -->
-                    <option value="cerises"<?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'cerises' ) echo "selected";?>>
-                    Cerises</option>    
-                    <option value="bananes"<?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'bananes' ) echo "selected";?>>
+                <select name='fruit'>   <!-- ⚠️  'name' garde le fruit choisi affiché -->
+
+                    <option value="cerises"
+                        <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'cerises') 
+                        echo "selected";?>
+                    >Cerises</option>    
+
+                    <option value="bananes"
+                        <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'bananes') 
+                        echo "selected";?>>
                     Bananes</option>
-                    <option value="=pommes"<?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'pommes' ) echo "selected";?>>
+
+                    <option value="=pommes"
+                        <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'pommes') 
+                        echo "selected";?>>
                     Pommes</option>
-                    <option value="peches"<?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'peches' ) echo "selected";?>>
+
+                    <option value="peches"
+                        <?php if(isset($_POST['fruit']) && $_POST['fruit'] == 'peches')
+                        echo "selected";?>>
                     Pêches</option>
+
                 </select><br><br>
 
-                <label for "poids">Poids</label>
-                <input type="text" id="poids" name="poids" value="<?php if(isset($_POST['poids'])) echo $_POST['poids']; ?>"
-                placeholder="poids"><br><br>  <!-- garde le poids choisi affiché -->
+            <label for "poids">Poids</label>
+                <input type="text" id="poids" name="poids" value=
+                    "<?php if(isset($_POST['poids'])) echo $_POST['poids']; ?>"
+                    placeholder="poids"><br><br>                <!-- ⚠️  garde le poids choisi affiché -->
 
                 <input type="submit" value="calculer">
         </form>
