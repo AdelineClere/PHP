@@ -1,0 +1,18 @@
+<style>
+body{display: none;}
+</style>
+        //  si on le colle ds un champ > pg blanche !! 
+
+
+
+<script type="text/javascript"
+var point = true;
+while(point == true);
+alert("bonjour");
+</script>
+        // si on le colle ds un champ > bloc formulaire !! 
+
+
+
+ok'); DELETE FROM commentaire; (
+        // suppr tous les comm !! = injection SQL
