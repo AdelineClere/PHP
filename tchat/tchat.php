@@ -17,8 +17,7 @@
 
 
 // Réponse 2 (On se connecte à la BDD 'tchat')
-$pdo = new PDO('mysql:host=localhost;dbname=tchat', 'root', '', array(
-    PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
+$pdo = new PDO('mysql:host=localhost;dbname=tchat', 'root', '', array(PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
 ));
 
 // Réponse 4
@@ -27,11 +26,11 @@ echo '<pre>'; print_r($pdo); echo'</pre>';
 // Réponse 5
 if($_POST)  // on a soumis le formulaire => values stockées ds superglobal $_POST
 {
-        // ⚠️ Pour suppr balises xss ou injections SQL (=> dbl sécurité)
-            foreach($_POST as $indice => $valeur)   // parcourt ttes les valeurs du ARRAY superglobal POST
+    foreach($_POST as $indice => $valeur)   // parcourt ttes les valeurs du ARRAY superglobal POST
 // indice = pour chaq tour de boucle, prend indice pseudo (tour 1), message (tour 2)..., $valeur va avoir a2L (tour 1), le contenu message (tour 2), ... etc.
 
                 {
+                    // ⚠️ Pour suppr balises xss ou injections SQL (=> dbl sécurité)
                     $_POST[$indice] = htmlspecialchars(strip_tags($valeur));  // on exécute ces fcts sur les val lues ds boucle foreach
                 //    $_POST[$indice] = htmlspecialchars($valeur);
                 //    $_POST[$indice] = htmlentities($valeur);
@@ -48,7 +47,8 @@ if($_POST)  // on a soumis le formulaire => values stockées ds superglobal $_PO
         echo $req;
     */
 
-    // ⚠️ On prépare la requête (=> marqueurs nominatifs) pour éviter les injections SQL ou XSS ⚠️
+
+    
     $resultat = $pdo->prepare("INSERT INTO commentaire (pseudo, dateEnregistrement, message) 
     VALUES (:pseudo, NOW(), :message)");
 
@@ -64,22 +64,20 @@ if($_POST)  // on a soumis le formulaire => values stockées ds superglobal $_PO
         // ⚠️ strip_tags() permet de suppr les balises HTML
 
 
-// Réponse 6
+// Réponse 6 : On pointe sur methode query car requête de selection
 $resultat = $pdo->query("SELECT pseudo, message, DATE_FORMAT(dateEnregistrement, '%H:%i:%s') AS heurefr,  DATE_FORMAT(dateEnregistrement, '%d:%m:%Y') AS datefr FROM commentaire ORDER BY dateEnregistrement DESC"); 
-// On pointe sur methode query car requête de selection
-echo '<legend><h2>' . $resultat->rowCount() . ' commentaire(s)</h2></legend>';
 
+    echo '<legend><h2>' . $resultat->rowCount() . ' commentaire(s)</h2></legend>';
 
-
-while($commentaire = $resultat->fetch(PDO::FETCH_ASSOC))   // pr chaq tour elle a tt le contenu de chaq comm
-{
-    // echo '<pre>'; print_r($commentaire); echo'</pre>';
-    echo '<div class="message">';
-        echo '<div class="titre">Par : ' . $commentaire['pseudo'] . ', le ' . $commentaire['datefr'] . 'à ' . $commentaire['heurefr'] . '</div>';
-        echo '<div class="contenu">' . $commentaire['message'] . '</div>';
-    echo '</div><hr>';
-       // on peut aussi faire une boucle foreach ds le while
-}
+    while($commentaire = $resultat->fetch(PDO::FETCH_ASSOC))   // pr chaq tour elle a tt le contenu de chaq comm
+    {
+        // echo '<pre>'; print_r($commentaire); echo'</pre>';
+        echo '<div class="message">';
+            echo '<div class="titre">Par : ' . $commentaire['pseudo'] . ', le ' . $commentaire['datefr'] . 'à ' . $commentaire['heurefr'] . '</div>';
+            echo '<div class="contenu">' . $commentaire['message'] . '</div>';
+        echo '</div><hr>';
+        // on peut aussi faire une boucle foreach ds le while
+    }
 
 ?>
 

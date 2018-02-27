@@ -16,16 +16,14 @@ $pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', '', array(PDO::
 PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'));
 
 
-if($_POST)  // on a soumis le formulaire => values stockées ds superglobal $_POST
+if($_POST)  // ⚠️ on a soumis le formulaire => values stockées ds superglobal $_POST
 {
     $resultat = $pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) 
     VALUES ('$_POST[prenom]', '$_POST[nom]', '$_POST[sexe]', '$_POST[service]', '$_POST[date_embauche]', '$_POST[salaire]')");  
 
-    echo '<div style="background: green; padding: 10px; text-align: center; border-radius: 5px; width: 
+    echo '<div style="background: green; color: #fff; padding: 10px; text-align: center; border-radius: 5px; width: 
     200px;">Inscription OK !!</div>';
 }
-
-
 
 
 ?>
@@ -64,7 +62,7 @@ if($_POST)  // on a soumis le formulaire => values stockées ds superglobal $_PO
             <input type="text" id="service" name="service" placeholder="service"><br><br>
 
             <label for="date_embauche">Date d'embauche</label>
-            <input type="date" id="date_embauche" name="date_embauche" placeholder="date_embauche"><br><br>
+            <input type="date" id="date_embauche" name="date_embauche" placeholder="date_embauche"><br><br><br>
                                     
             <label for="salaire">Salaire</label>
             <input type="text" id="salaire" name="salaire" placeholder="salaire"><br><br>

@@ -95,9 +95,9 @@ echo "<br>" , "coucou" , "<br>";    // ⚠️ concaténation avec une virgule : 
 
 
 
-/* ---------------------
-    CONCATENATION
------------------------*/
+/* -------------------------------------
+    CONCATENATION lors de l'AFFECTATION
+--------------------------------------*/
 echo '<hr><h2>Concaténation lors de l\'affectation</h2>';
 
 $prenom1 = "Gégory";
@@ -235,7 +235,7 @@ else     // cas par défaut, dans tous les autres cas, on tombe dans la conditio
 
 if ($a > $b && $b > $c)
 {
-    echo "OK pour les 2 conditions<br>";        // on rentre ds les 2 condtions
+    echo "OK pour les 2 conditions<br>";    // on rentre ds les 2 condtions
 }
 if($a == 9 || $b > $c)
 {
@@ -273,7 +273,7 @@ else
     echo "3 - tout le monde a faux<br>";
 }
 // Si la 1ère condition est respectée, avec le ELSEIF le script stop le script malgré que la 2è condition soit respectée.
-// On peut déclarer une condition ac plusieurs elseif, en revanche il n'y aqu'un seul cas par défaut "else".
+// On peut déclarer une condition ac plusieurs elseif, en revanche il n'y qu'un seul cas par défaut "else".
 
 // -------------------------------------------------------------
 // condition exclusive
@@ -286,7 +286,7 @@ if($a == 10 XOR $b == 6)
 // -------------------------------------------------------------
 // Forme contractée : 2è possibilité d'écriture d'un if
 echo ($a == 10) ? "A est égal à 10<br>" : "A n'est pas égal à 10<br>";
-// ⚠️ Le ? remplace le if et les ':' remplacent le else
+// ⚠️ Le ? remplace le if et les ':' remplacent le else ⚠️ ⚠️ ⚠️ 
 
 
 // -------------------------------------------------------------
@@ -325,9 +325,9 @@ switch($couleur)
     break;
 }
 echo "<br>";
-// Les case représentes les différents cas ds lesquels nous pouvons potentiellement tomber, 
-// break stop l'exécution du script si un des cas est vérifié
-// Si un des cas n'est pas vérifié, nous tombons dans le cas par défaut "default"
+// ⚠️ Les case représentes les différents cas ds lesquels nous pouvons potentiellement tomber, 
+// ⚠️ break stop l'exécution du script si un des cas est vérifié
+// Si un des cas n'est pas vérifié, nous tombons dans le cas par défaut "default" ⚠️ 
 
 // Exo : pouvez-vous faire la même chose que le switch avec des else ?
 $couleur = "jaune";
@@ -433,7 +433,7 @@ separation();   // exécution de la fct
     bonjour();    //  --> erreur !
     */
 
-// On peut affecter une valeur par défaut à la variable de réception, ds ce cas à l'exécution, 
+// ⚠️ On peut affecter une valeur par défaut à la variable de réception, ds ce cas à l'exécution, 
 // il n'est pas nécessaire de lui envoyer un argument si l'on veut afficher sa valeur par défaut.
 function bonjour ($qui)     // $qui ne sort pas de nulle part :permet de prévoir un argument, 
 // il s'agit d'une variable de réception, pas besoin de lui attribuer une valeur
@@ -590,9 +590,9 @@ echo '</select>';       // -> menu déroulant qui va de 0 à 30 !!
 echo "<br>";
 //-----------------------------------------------------------------
 //  EXO : Faites une boucle 0 à 9 sur la même lg ds un tablo HTML |
-echo '<table>';             // déclaration de tablo
-    echo '<tr>';        //        __      ligne
-        echo '<td>';    //        __      cellule
+echo '<table>';             //  <table> = déclaration de  tablo  ⚠️ 
+    echo '<tr>';            //  <tr> =   __            ligne     ⚠️ 
+        echo '<td>';        //  <td> =   __            cellule   ⚠️ 
 		echo '</td>';
 	echo '</tr>';
 echo '</table>';
@@ -620,7 +620,7 @@ echo '<table border=1>';
             {
                 echo '<td>' . $z . '</td>';     // ⚠️ $z ne revient jamais à 0 puisqu'on incrémente à chq tour de boucle
                 $z++;       // (qd on a fini la 1ère boucle, on arrive à 9, 
-                //on repart à 1ère boucle lg 614, et on continue à incrémenter z > qui passe à 10 !)
+                //on repart à 1ère boucle lg 615, et on continue à incrémenter z > qui passe à 10 !)
             }
         echo '</tr>';
     }    
@@ -674,13 +674,14 @@ echo '<pre>'; print_r($liste); echo '</pre>'; // ⚠️ renvoi ça :
             [3] => Adeline
         )   */
 
-// ⚠️  var_dump et print_r sont des instructions d'affichage améliorées.
-// ⚠️  pre = balise html pour formater texte = mettre en forme la sortie du print_r ou var_dump
+// ⚠️  var_dump et print_r ⚠️ sont des instructions d'affichage améliorées.
+// ⚠️  <pre> = balise html pour formater texte = mettre en forme la sortie du print_r ou var_dump
 // ⚠️  Contexte : qd on récup des infos en BDD, on les retrouvera sous forme d'ARRAY
 
 
-//--------------------------------------------------------------------
-//  BOUCLE FOR EACH
+/* ----------------------------
+      BOUCLE FOREACH
+------------------------------*/
 echo '<hr><h2> Boucle foreach pour les tableaux de données ARRAY </h2>';
 $tab[] = "France";
 $tab[] = "Italie";
@@ -706,9 +707,9 @@ echo '<pre>'; print_r($tab); echo '</pre>'; // renvoi ça :
 echo($tab[1]) . "<hr>"; // -> Italie :  On va crocheter à l'indice 1 du tablo de données ARRAY
 
 
-foreach($tab as $info) // $info : va parcourir/afficher 1 pays à chq tour de boucle
-// Le mot AS fait partie du langage et est obligatoire. $info vient parcourir la colonne des valeurs 
-// du tablo de données ARRAY, pour chaq tr de boucle, elle possède une valeur différente.
+foreach($tab as $info) // 
+// Le mot ⚠️ 'AS' fait partie du langage et est obligatoire. $info vient parcourir la colonne des valeurs 
+// du tablo de données ARRAY, ⚠️ pour chaq tr de boucle, elle possède une valeur différente.
 {
     echo $info . "<br>";    // On affiche successivt les élts du tablo
 }   //affiche : 
@@ -750,18 +751,18 @@ echo $indice . ' = ' . $valeur . '<br>';
 
 echo 'Taille du tableau : ' . count($couleur) . "<br>"; // -> affiche 4
 echo 'Taille du tableau : ' . sizeof($couleur) . "<br>";
-// ⚠️  sizeof = count, ce sont des fct prédéfinies pour retourner la taille du tablo
+// ⚠️  sizeof = count = fct prédéfinies ⚠️ fpour retourner la taille du tablo
 
 echo implode("-", $couleur);    // -> jaune-rouge-vert-bleu 
-// ⚠️  implode = fct prédéf. qui rassemble les élts d'1 tablo en une chaine (séparés par un symbole)
+// ⚠️  implode = fct prédéf. ⚠️ qui rassemble les élts d'1 tablo en une chaine (séparés par un symbole)
 
 
 //--------------------------------------------------------------------
 echo '<hr><h2> Tableaux de données ARRAY multidimensionnel </h2>';
 
 $tab_multi = array(
-             0 => array("prenom" => "Grégory", "nom" => "Lacroix"), // à l'indice prénom définie moi la valeur __> Greg...
-             1 => array("prenom" => "Adeline", "nom" => "Clere"),
+    0 => array("prenom" => "Grégory", "nom" => "Lacroix"), // à l'indice prénom définie moi la valeur __> Greg...
+    1 => array("prenom" => "Adeline", "nom" => "Clere"),
 );
 /*
 echo '<pre>'; print_r($tab_multi); echo '</pre>';
@@ -786,13 +787,11 @@ echo $tab_multi[1] ["nom"];     // rq : si on avait pas déclaré nom, prenom, j
 
 echo '<hr>';
 // EXO : extraire les valeurs des tableaux multi à l'aide de boucles
-
-foreach($tab_multi as $sousTablo => $valeurs) // [0] on parcourt tablo principal, 
-{                     //= [0]       = valeurs contenues ds [0]
+foreach($tab_multi as $sousTablo => $valeurs) // ⚠️ [0] on parcourt tablo principal > 1er sous-tablo > prend tout le contenu
+{                     //= [0]       = ttes les valeurs contenues ds [0]
     foreach($valeurs as $indice => $valeur)  // on est dans le 1er tablo, 
-// 1er tour >lit 1er indice de [0] = prenom  => $valeur2 = valeur du prenom     
-// 2e tour > lit 2è indice de [0] = nom => valeur2 = valeur du enom
-        // nvlle boucle foreach pour parcourir et lire deuziemeIndice (=nom)
+// ⚠️ 1er tour >lit 1er indice de [0] = prenom  => $valeur2 = valeur du prenom     
+// ⚠️ 2e tour > lit 2è indice de [0] = nom => valeur2 = valeur du enom
     {
         echo $valeur . "<br>";     // affiche nom prenom
     }
@@ -801,23 +800,22 @@ foreach($tab_multi as $sousTablo => $valeurs) // [0] on parcourt tablo principal
                         Adeline
                         Clere   */
 
-
 echo '<hr>';
 // autre choz :
 foreach($tab_multi as $sousTablo => $valeurs) 
 {
-        echo implode ("-", $valeurs) . '<br>';                                  
+        echo implode ("-", $valeurs) . '<br>';     // ⚠️                           
         echo "<br>";
 }
 
-
-// 795 - 1er tour 
+// ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ 
+// 790 - 1er tour 
 //       1ère boucle > parcourt tout le tablo principal et prend les valeurs de 1er indice = tablo [0]
 //       > la boucle lit $indice1 = tablo [0] => prend toutes les valeurs contenues dans [0]
 
-// 797 - 1er tour, 2e boucle > parcourt le tablo [0]
+// 792 - 1er tour, 2e boucle > parcourt le tablo [0]
 //       > la boucle lit le 1er indice de tabl [0] = prenom
-//       2e tour > la boucle lit 2è indice de tabl [0]  = nom
+//       2e tour > la boucle lit 2è indice de tabl [0]  = nom   ... qd a fini retourne à 790 pour aller lire 2è ss-tablo !
          
 
 echo '<hr>';
@@ -846,12 +844,12 @@ foreach($tab_multi as $sousTablo => $valeurs)
 echo '<hr><h2> Classe et objet </h2>';
 /*
  un objet est un autre type de données. Un peu à la manière d'un ARRAY, il permet de regrouper des infos. 
- Cependant cela va bcp + loin car on peut y déclarer ⚠️ des VARIABLES (appelées : PROPRIETES) 
- mais aussi ⚠️ des FONCTIONS (appelées : METHODES)
+ Cependant cela va bcp + loin car on peut y déclarer ⚠️ des VARIABLES (appelées : ⚠️ PROPRIETES) 
+ mais aussi ⚠️ des FONCTIONS (appelées : ⚠️ METHODES)
 */
 class Etudiant              // ex : class = plan de la voiture
 {
-    public $prenom = "Grégory"; // public permet de préciser que l'élt sera visible de partout 
+    public $prenom = "Grégory"; // ⚠️ PUBLIC permet de préciser que l'élt sera visible de partout 
     // (il y a aussi protected et private)
     public $age = 25;           // ⚠️ déclaration d'une PROPRIETE public️ 
     public function Pays()      // ⚠️ déclaration d'une FONCTION public  
@@ -859,8 +857,8 @@ class Etudiant              // ex : class = plan de la voiture
         return "France";
     }
 }
-$objet = new Etudiant();    // ⚠️ on a un objet issu de la class Etudiant (ex : objet = toutes les pc de la voiture assemblées
-// NEW est un mot-clé pour INSTANCIER la class et en faire un objet. 
+$objet = new Etudiant();    //  =>️ on a un objet issu de la class Etudiant (ex : objet = toutes les pc de la voiture assemblées
+// ⚠️ ⚠️  NEW est un mot-clé pour INSTANCIER ⚠️ ⚠️ la class et en faire un objet ⚠️ ⚠️  
 // Ce qui nous permet de la déployer afin que l'on puisse s'en servir. 
 // On se sert de ce qui est dans la class via l'objet.
 echo '<pre>'; var_dump($objet); echo '</pre>'; // => pour le voir

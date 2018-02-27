@@ -1,8 +1,8 @@
 <?php
 echo '<h2>01. PDO : Connexion BDD </h2>';
 /****************************************/
-// PDO = une classe qui instancie $pdo - Ici que l'on modifie BDD qd on créé un site qui en a une
-$pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', '', array(
+// ⚠️ PDO = une classe qui instancie $pdo - Ici que l'on modifie BDD qd on créé un site qui en a une ⚠️ ⚠️ ⚠️ 'root' en mdp sur Mac
+$pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', 'root', array(
     PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
 ));
 // arguments : 1 (serveur + bdd), 2 (identifiant), 3 (mdp), 4 (options)
@@ -19,9 +19,8 @@ Cette class possède ses propres propriétés et méthodes = ⚠️ class déjà
 La classe PDO contient plusieurs méthodes permettant d'effectuer des requêtes à la BDD (query(), exec(), prepare(), execute()).
 */
 
-
 echo '<pre>'; print_r(get_class_methods($pdo)); echo'</pre>';
-//⚠️ get_class_methods = fct° PREDEFINIE pour afficher les méthodes issues de la classe via l'objet.
+//⚠️ get_class_methods = fct° PREDEFINIE pour afficher les méthodes issues de la classe PDO via l'objet $pdo ⚠️ 
         /*  Array
             (
                 [0] => __construct
@@ -49,6 +48,7 @@ echo '<h2>02. PDO : EXEC - INSERT, UPDATE, DELETE </h2>';
 /*************************************************/
 // Formuler une requête pour vous insérer dans la table employes
 /*
+⚠️  INSERT
 $resultat = $pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) 
 VALUES ('Grégory', 'LACROIX', 'm', 'informatique', '2018-02-26', 15000)");      // auto-incrément° de l'id_employe
 */
@@ -57,23 +57,23 @@ VALUES ('Grégory', 'LACROIX', 'm', 'informatique', '2018-02-26', 15000)");     
 // echo "Nombre d'enregistrement affecté par l'insert : $resultat" . '<br>';    // -> 1
 
 
-// UPDATE
+// ⚠️ UPDATE
 // Modif du salaire de employe 350 à 1300
 $resultat = $pdo->exec("UPDATE employes SET salaire = 1300 WHERE id_employes = 350");
     echo "Nombre d'enregistrement affecté par l'update : $resultat" . '<br>'; 
 // $resultat =  ⚠️ variable de réception créée
 // Je pioche dans l'objet $pdo grâce à '->' , et la je vais formuler et executer ma requête
 
-// DELETE
+// ⚠️ DELETE
 // Réaliser le script pour suppr l'employé 350
 $resultat = $pdo->exec("DELETE FROM employes WHERE id_employes = 350");
     echo "Nombre d'enregistrement affecté par le delete : $resultat" . '<br>';  
 $resultat = $pdo->exec("DELETE FROM employes WHERE prenom = 'Grégory'");
 
 /*
-⚠️ exec() est une METHODE issue de la class PDO permettant de formuler et exécuter des requêtes SQL ⚠️
-⚠️ exec() est utilisé pour la formulation de requêtes ne retournant PAS de résultat ⚠️
-⚠️ exec() renvoie le nb de lg affectées par la requête 
+⚠️ ⚠️ exec() est une METHODE issue de la class PDO permettant de formuler et exécuter des requêtes SQL ⚠️
+⚠️ ⚠️ exec() est utilisé pour la formulation de requêtes ne retournant PAS de résultat ⚠️
+⚠️ ⚠️ exec() renvoie le nb de lg affectées par la requête ⚠️ 
 */
 
 
@@ -89,11 +89,11 @@ $resultat = $pdo->query("SELECT * FROM employes WHERE id_employes = 699");
                         string(46) "SELECT * FROM employes WHERE id_employes = 699"
                     }   */
 /*
-⚠️ Lorsqu'on exécute une requête de sélection via la METHODE query() sur l'objet PDO:
-Succès : on obtient un autre objet issu d'une autre class : ⚠️️ PDOStatement ⚠️ 
+⚠️ Lorsqu'on exécute une requête de sélection via la METHODE ⚠️ query() sur l'objet PDO:
+Succès : ⚠️ on obtient un autre objet issu d'une autre class : ⚠️️ PDOStatement ⚠️ 
          Cet objet a dc des méthodes et propriétés différentes !!
 Echec  : boolean FALSE
-$resulat est inexploitable en l'état, nous devons lui associer une METHODE fetch ⚠️ 
+$resulat est inexploitable en l'état, ⚠️ nous devons lui associer une METHODE fetch ⚠️ 
 (PDO::FETCH_ASSOC) qui permet de rendre le résultat exploitable sous forme de tablo ARRAY.        
 */
     echo'<pre>'; print_r(get_class_methods($resultat)); echo '</pre>'; // > on voit les méthodes de l'objet query
@@ -123,8 +123,8 @@ $resulat est inexploitable en l'état, nous devons lui associer une METHODE fetc
                     )   */
 
 $employe = $resultat->fetch(PDO::FETCH_ASSOC);  
-// ⚠️  METHODE FETCH va retourner résultat en ARRAY  (/ par employé)
-// fetch = méthode issue de l'objet PDOStatement, pas de l'objet query !
+// ⚠️  METHODE FETCH va retourner résultat en ⚠️ ARRAY  (1 par employé)
+// ⚠️ fetch = méthode issue de l'objet PDOStatement, pas de l'objet query !
 
 echo'<pre>'; print_r($employe); echo '</pre>';
                 /*  Array
@@ -139,7 +139,7 @@ echo'<pre>'; print_r($employe); echo '</pre>';
                     )   */
 
 
-// $employe = $resultat->fetch(PDO::FETCH_BOTH);    // => ⚠️  index à la fois numériqt + le nom des champs
+// $employe = $resultat->fetch(PDO::FETCH_BOTH);    // => ⚠️  ARRAY qui index à la fois numériqt + le nom des champs
     // echo'<pre>'; print_r($employe); echo '</pre>';
                     /*   Array
                         (
@@ -187,8 +187,8 @@ foreach($employe as $indice => $valeur) // on définie une valeur qd les indices
             sexe : m
             service : secretariat
             date_embauche : 2007-01-18
-            salaire : 1490
-        */
+            salaire : 1490                  */
+       
 
 
 
@@ -200,20 +200,20 @@ $resultat = $pdo->query("SELECT * FROM employes"); // ⚠️ on pioche ds class 
     echo'<pre>'; var_dump($resultat); echo '</pre>';    // => retourne objet class PDOStatement
 
     echo 'Nombre d\'employe(s) : ' . $resultat->rowCount() . "<br>";    
-    // ⚠️ rowCount = METHODE issue de class PDOStatement pr compter nb lg retournées par la requête de sel° (=19)
+    // ⚠️ ⚠️ rowCount = METHODE issue de class PDOStatement pr compter nb lg retournées par la requête de sel° (=19)
 
 
 while($contenu = $resultat->fetch(PDO::FETCH_ASSOC))  // ⚠️ > donne que le 1er employé si PAS de boucle !
 // ⚠️ Pr chaq tour de boucle while, la var $contenu retourne un ARRAY par employé, tant qu'il y a des employés, la boucle tourne
 {
-    echo '<pre>'; print_r($contenu); echo '<pre>';    // retourne un array par employé
+    echo '<pre>'; print_r($contenu); echo '<pre>';    // array de chaq employé
     foreach($contenu as $indice => $valeur) // 2è boucle passe chaq tablo array de chaq employé
     {
         echo $indice . ' : ' . $valeur . '<br>';    // on passe en revue les tablox ARRAY de chq employé
     }
     echo '<hr>';
 }
-     // 2è tour elle donne 2è employé...
+     // 2è tour de 206 elle donne 2è employé... etc
 
                 /*  Nombre d'employe(s) : 19
                     id_employes : 388
@@ -224,7 +224,7 @@ while($contenu = $resultat->fetch(PDO::FETCH_ASSOC))  // ⚠️ > donne que le 1
                     date_embauche : 2000-01-15
                     salaire : 2400
                     id_employes : 415
-                    prenom : Thomas     */
+                    prenom : Thomas         etc.... (tous les autres) */
 
 // ⚠️️ Il n'y a pas 1 ARRAY ac ts les enregistrements deds, mais 1 ARRAY par enregistrement (par employé) !!
 // ⚠️ Votre requête sort plusieurs résultats ? : une boucle !!
@@ -255,10 +255,8 @@ $donnees = $resultat->fetchAll(PDO::FETCH_ASSOC);   // ⚠️️ fetchAll = un t
 
 
 // EXO : Afficher successt les données de ts les employés à l'aide de boucle et aff. conventionnel
-
 foreach($donnees AS $indice1 => $valeur )  // $indice = [0] (tt le contenu du 1er tablo )
 {
-    echo '<pre>'; print_r($contenu); echo '<pre>';    
     foreach($valeur as $indice2 => $valeur2)     // ds [0] lire indice 0 > 1ère lg du tablo
     {
         echo $indice2 . ' : ' . $valeur2 . '<br>'; 
@@ -288,21 +286,6 @@ echo '<ul>';
 echo '</ul>';
 
 
-            // marche aussi (me) :
-            echo '<ul>';
-                while($bdd = $resultat->fetch(PDO::FETCH_ASSOC))
-                {
-                    echo '<pre>'; print_r($contenu); echo '<pre>';   
-                    
-                    foreach($bdd as $indice => $valeur) 
-                    {
-                        echo '<li>' . $valeur . '</li> ';  
-                    }
-                }
-            echo '</ul>';
-            echo '<hr>';
-
-
 
 
 echo '<hr>';
@@ -315,9 +298,9 @@ echo '<h2>07. PDO : QUERY - TABLE </h2>';
 $resultat = $pdo->query("SELECT * FROM employes");
 
 echo '<table border=1><tr>';
-    for($i = 0; $i < $resultat->columnCount(); $i++)    // ⚠️️ columnCount() = méthode issue de la class PDOStatement qui retourne le nb de champs/colonnes de la table, tant qu'il y a des colonnes, on boucle.
+    for($i = 0; $i < $resultat->columnCount(); $i++)    // ⚠️️ ⚠️️ columnCount() = méthode issue de la class PDOStatement qui retourne le nb de champs/colonnes de la table, tant qu'il y a des colonnes, on boucle.
     {
-         $colonne = $resultat->getColumnMeta($i);    // ⚠️️ getColumnMeta() = méthode issue de la class PDOStatement qui récolte les infos des champs/colonnes de la table, pour chaque tour de boucle, $colonne contient un tablo ARRAY ac les infos d'une colonne.
+        $colonne = $resultat->getColumnMeta($i);    // ⚠️️ ⚠️️ getColumnMeta() = méthode issue de la class PDOStatement qui récolte les infos des champs/colonnes de la table, pour chaque tour de boucle, $colonne contient un tablo ARRAY ac les infos d'une colonne.
 
         // echo '<pre>'; print_r($colonne);echo '</pre>';
         echo '<td>' . $colonne['name'] . '</td>';   // on a créé la 1ère lg
@@ -338,29 +321,26 @@ echo '</table>';
 
 
 
-/*  --> essayer ac méthode foreach (pas while)
+//  --> essayer ac méthode foreach (pas while)
+/*
+$donnees = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
-echo "<table border=1><tr>";  
-    echo "<th>Poids</th>";
-    foreach($tab_fruits as $indice_fruit => $fruit)
+echo "<table border=1><tr>"; 
+    foreach($donnees AS $indice1 => $valeur )  // $indice = [0] (tt le contenu du 1er tablo )
     {
-        echo "<th>$fruit</th>";      // ⚠️ 1ère lg des fruits affichée
-    }
-    echo '</tr>';
-    
-        foreach($tab_poids as $poids)      
+        echo '</tr>';
+        foreach($valeur as $indice2 => $valeur2)     // ds [0] lire indice 0 > 1ère lg du tablo
         {
-            echo '<tr>';                 // ⚠️ <tr> déclare lg
-            echo "<th>$poids g</th>";      // la boucle parcourt chaq poids et va à la lg à chaq poids pour l'afficher
-
-            foreach($tab_fruits as $fruit)  // ⚠️ on va appeler les $fruit pour ... 
-            {
-                echo "<td>" . calcul($fruit, $poids) . "</td>"; // ⚠️  ...les passer en calcul ac les $poids 
-            }
+            echo '<tr>';
+            echo $indice2 . ' : ' . $valeur2 . '<br>'; 
             echo '</tr>';
         }
-echo '</tr></table>';
+        echo '<hr>';
+    }
 */
+
+
+
 
 
 
@@ -368,9 +348,9 @@ echo '<hr>';
 echo '<h2>08. PREPARE + BINDVALUE + EXECUTE </h2>';
 /*************************************************/
 // (=> on créée un genre de fct où l'on changera juste le nom du marqueur pour changer son utilité)
-// Préparation de la requête :
-// Soulage le serveur et la BDD à l'exécution, previens pour les injections SQL et les failles XSS
-// ':nom' est un marqueur nominatif, on prépare la requête mais on ne l'éxécute pas.
+// ⚠️️ Préparation de la requête :
+// ⚠️️ Soulage le serveur et la BDD à l'exécution, previens pour les injections SQL et les failles XSS
+// ⚠️️ ':nom' est un marqueur nominatif, on prépare la requête mais on ne l'éxécute pas.
 
 $nom = "Blanchet";
 $resultat = $pdo->prepare('SELECT * FROM employes WHERE nom = :nom'); // requête de sélection où ...
