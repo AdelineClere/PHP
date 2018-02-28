@@ -11,16 +11,16 @@
 if($_POST)
 {
     $erreur = '';
-    // ⚠️on prépare pseudo ac marqueur pour éviter injections, XSS
+    // ⚠️ on prépare pseudo ac marqueur pour éviter injections, XSS
     $verif_pseudo = $pdo->prepare("SELECT * FROM membre WHERE pseudo = :pseudo");
     $verif_pseudo->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
     $verif_pseudo->execute();
     
-        if($verif_pseudo->rowCount() > 0)   // ⚠️compte le nb de lg sélectionnées par ma requête => un INTEGER (combien)
+        if($verif_pseudo->rowCount() > 0)   // ⚠️ compte le nb de lg sélectionnées par ma requête => un INTEGER (combien)
         {
             $erreur .= '<div class="alert alert-danger col-md-8 col-md-offset-2 text-center">Pseudo indisponible !!</div>';
         }
-        if(strlen($_POST['pseudo']) < 2 || strlen($_POST['pseudo']) > 20)  // ⚠️strlen compte octets, dc ^' etc...
+        if(strlen($_POST['pseudo']) < 2 || strlen($_POST['pseudo']) > 20)  // ⚠️ strlen compte octets, dc ^' etc...
         {
             $erreur .= '<div class="alert alert-danger col-md-8 col-md-offset-2 text-center">Taille pseudo non valide !!</div>';
         }
@@ -44,12 +44,12 @@ if($_POST)
         $content .= $erreur;
 
 
-        if(empty($erreur)) // si pas de $erreur > ⚠️peut s'insérer ds table memebre à l'aide de requête préparée
+        if(empty($erreur)) // si pas de $erreur > ⚠️ peut s'insérer ds table membre à l'aide de requête préparée
         {
             // EXO : réal. le script pour INSERER ds la table membre à l'aide d'une REQUETE PREPAREE
             
             // $_POST['mdp'] = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-            // On ne conserve jamais mdp en clair ds BDD => ⚠️⚠️password_hash permet de hacher le mdp en algorithme
+            // On ne conserve jamais mdp en clair ds BDD => ⚠️ ⚠️ password_hash permet de hacher le mdp en algorithme
 
             $resultat = $pdo->prepare("INSERT INTO membre(pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse) VALUES (:pseudo,:mdp,:nom,:prenom,:email,:civilite,:ville,:code_postal,:adresse)");
 
@@ -74,7 +74,7 @@ if($_POST)
 
 
 require_once("inc/header.inc.php");  
-echo $content;  // on a stocké tt le contenu de l'erreur ds une val pour appeler qu'un seule fois (l'eereur + le contenu du messag d'erreur)
+echo $content;  // on a stocké tt le contenu de l'erreur ds une val pour appeler qu'un seule fois (l'erreur + le contenu du messag d'erreur)
 ?>
 
 

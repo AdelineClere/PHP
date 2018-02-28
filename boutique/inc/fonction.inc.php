@@ -4,7 +4,7 @@ function debug($var, $mode = 1)
     echo '<div style="background: orange; padding: 5px;">'; 
     $trace = debug_backtrace();  // Fct° prédéfinie retournant un tablo ARRAY contenant des infos telles que la lg et le fichier où est exécutée la fct.
     // echo '<pre>', print_r($trace); echo '</pre>';
-    $trace = array_shift($trace);   // -> on aplus l'indice [0], mais que un ARRAY
+    $trace = array_shift($trace);   // -> on a plus l'indice [0], mais que un ARRAY
     // echo '<pre>', print_r($trace); echo '</pre>';
     echo "Debug demandé dans le fichier : $trace[file] à la lg $trace[line] . <hr>";
     echo '</div>';
@@ -25,8 +25,8 @@ function debug($var, $mode = 1)
 
 function internauteEstConnecte()    // Fct pr voir si le membre est connecté
 {
-    if(!isset($_SESSION['membre'])) // si ne s'est pas connecté, il n'est pas encore dans SESSION
-    // Si l'indice membre ds fichier SESSION n'est pas défini <=> c que l'internaute n'est pas passé par la pg connexion
+    if(!isset($_SESSION['membre'])) // si ne s'est pas connecté, il n'est pas encore dans SESSION (= ARRAY ds xamp/tmp)
+    // ⚠️  Si l'indice membre ds fichier SESSION n'est pas défini <=> c que l'internaute n'est pas passé par la pg connexion
     {
         return false;
     }
@@ -41,7 +41,7 @@ function internauteEstConnecte()    // Fct pr voir si le membre est connecté
 function internauteEstConnecteEtEstAdmin()  // m'indique si le membre est admin
 {
     if(internauteEstConnecte() && $_SESSION ['membre']['statut'] == 1)
-    // Si la session du membre est définie et que son statut est à 1 <=> il est admin > on retourne true
+    // ⚠️  Si la session du membre est définie et que son statut est à 1 <=> il est admin > on retourne true
     {
         return true;
     }

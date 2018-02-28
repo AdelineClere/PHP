@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="<?= URL ?>inc/css/bootstrap.min.css" rel="stylesheet"> 
     <link href="<?= URL ?>inc/css/style.css" rel="stylesheet">
-    <!-- balise php pr appeler constante URL dans l'URL pour donner chemin à fichiers du dossier admin -->
+              <!-- ⚠️  balise php pr appeler constante URL ds l'URL pour donner chemin à fichiers du dossier admin -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -63,7 +63,7 @@
               echo '<li><a href="' . URL . 'boutique.php">Boutique</a></li>';
               echo '<li><a href="' . URL . 'panier.php">Panier</a></li>';
               echo '<li><a href="' . URL . 'connexion.php?action=deconnexion">Deconnexion</a></li>';
-              // '?' => envoi l'info de deconnexion dans l'url (cf. pg connexion : if(isset($_GET['action']) && $_GET['action']='deconnexion'))
+              // ⚠️  '?' => envoi l'info de deconnexion dans l'url (cf. pg connexion : if(isset($_GET['action']) && $_GET['action']='deconnexion'))
             }
             else
             { // accès visiteur
@@ -80,4 +80,4 @@
       </div>
     </nav>
 
-    <div class="container mon-conteneur">
+    <div class="container mon-contener">
