@@ -1,7 +1,7 @@
 <h1>Les SESSIONS</h1>
 
 <?php
-session_start();    // ⚠️  permet de créer un fichier session ou l'ouvrir s'il existe déjà
+session_start();    // ⚠️ permet de créer un fichier session ou l'ouvrir s'il existe déjà
                     // > xampp / tmp
 $_SESSION['pseudo'] = "Greg_formateur"; 
 /*  la présence de crochets rappelle l'utilisation de tablo ARRAY, 

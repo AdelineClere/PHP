@@ -10,7 +10,7 @@ echo '<pre>'; print_r($_SESSION); echo '</pre>';
 
 /*
 ⚠️ Les infos d'une session sont enregistrées ds la session côté serveur, cela créé ⚠️ un cookie précisément 
-à l'identifiant de la session, sur le pc du client
+à l'identifiant de la session, sur le PC du client
 (-> cf "cn4lai2123e61b9t306cf3l1fp ds cookies !)
 Il ne pourra pas être modifié par l'internaute car c'est 1 fichier enregistré directt sur le serveur.
 ⚠️ Les sessions permettent d'avoir une connexion constante à un site, sans elles on ne pourrait pas naviguer
