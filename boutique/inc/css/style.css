@@ -8,7 +8,7 @@ footer {
 }
 
 .mon-contener {
-    height: 750px;
+    min-height: 750px;
 }
 
 .ma-nav {
