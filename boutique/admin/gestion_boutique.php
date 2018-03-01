@@ -1,17 +1,15 @@
 <?php
 require_once("../inc/init.inc.php");
 
-//⚠️ ⚠️ ⚠️ -------------  VERIF ADMINISTRATEUR 
+//⚠️⚠️⚠️  -------------  VERIF ADMINISTRATEUR 
 if(!internauteEstConnecteEtEstAdmin()) // Si internaute est pas administrateur -> ⚠️ on le redirige vers pg connexion :
 {
     header("location: " . URL . "connexion.php");   // ici mettre URL car pas même dossier
 }
-
 // debug($_POST);  // Verif infos se saisissent bien
 
 
-
-//⚠️ ⚠️ ⚠️ ------------- SUPPRESSION PDT
+//⚠️⚠️⚠️ ------------- SUPPRESSION PDT
 if(isset($_GET['action']) && $_GET['action'] == 'suppression')  
 // On rentre ds la condition que ds cas où l'on cliq sur le lien de suppr de l'affichage des pdts.
 {
@@ -23,7 +21,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'suppression')
     // on affecte nvll valeur à indice 'action'qui est ds URL, pr être redirigé sur l'affichage des pdts après la suppr° :
     $_GET['action']  = 'affichage';  
 
-    $content .='<div class="alert alert-sucess col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span>a bien été supprimé</div>';
+    $content .='<div class="alert alert-sucess col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span>a bien été supprimé</div>'; //' .= ' : pour pas effacer données déjà contenues dedans : on ajoute)
 }
             /* NON PREPAREE :
                 if(isset($_GET['action']) && $_GET['action'] == 'suppression')  
@@ -33,15 +31,15 @@ if(isset($_GET['action']) && $_GET['action'] == 'suppression')
                 }    */
 
 
-
-//⚠️ ⚠️ ⚠️ ------------- ENREGISTREMENT PDT
+//⚠️⚠️⚠️  ------------- ENREGISTREMENT PDT
 
 if(!empty($_POST))
 {
-    //⚠️ TRAITEMENT PHOTO
+    //⚠️⚠️  ENREGISTREMENT PHOTO
     
         $photo_bdd ='';
         if(isset($_GET['action']) && $_GET['action'] == 'modification')
+        // = si bien cliqué sur 'Modif pdt' (= envoyé act° ds URL) + que action est bien = modification, alors...
         {
             $photo_bdd = $_POST['photo_actuelle'];  // pour renvoyer même img ds BDD, pas du vide, et garder la même img
             // si on veut garder mêm photo > on affecte la val du champ 'hidden' (ds formul./photo) càd URL de photo actuelle
@@ -50,10 +48,9 @@ if(!empty($_POST))
         // debug($_FILES);     // => infos ARRAY de tof chargée
         if(!empty($_FILES['photo']['name']))    // ⚠️ si indice name différent de vide (= une tof est chargée) dc >
         {
-            $nom_photo = $_POST['reference'] . '-' . $_FILES['photo']['name'];  
-                //⚠️ On concatène REF saisie +  NOM tof via la superglobal $_FILES        
+            $nom_photo = $_POST['reference'] . '-' . $_FILES['photo']['name'];  //⚠️ On concatène REF saisie +  NOM tof via superglobal $_FILES      
             // echo $nom_photo . '<br>';
-            $photo_bdd = URL . "photo/$nom_photo";  //⚠️ On défini URL de la tof (>elle qu'on va enregistrer ds BDD)
+            $photo_bdd = URL . "photo/$nom_photo";  //⚠️ On défini URL de la tof (> elle qu'on va enregistrer ds BDD)
             // echo $photo_bdd . '<br>';
             $photo_dossier = RACINE_SITE . "photo/$nom_photo";  //⚠️ Défini  le CHEMIN de la tof sur le serveur
             // echo $photo_dossier . '<br>';
@@ -62,12 +59,11 @@ if(!empty($_POST))
         }
 
 
-    //⚠️ INSERER PDT avec requête préparée
+    //⚠️⚠️  INSERER / MODIFIER PDT avec requête préparée
                  
-        if(isset($_GET['action']) && $_GET['action'] == 'ajout')    // ds URL on a ' ...?action=ajout '
-        {   // dc on va enregistrer new pdt ds bdd
-
-        //⚠️ CONTROLER dispo d'une réf (on prépare reference ac marqueur pour éviter injections, XSS):
+        if(isset($_GET['action']) && $_GET['action'] == 'ajout')    // ds URL on a ' ...?action=ajout ' = ⚠️ INSÉRER
+        {   
+            //⚠️ CONTROLER dispo d'une réf (on prépare reference ac marqueur pour éviter injections, XSS):
             $erreur = '';
             $verif_ref = $pdo->prepare("SELECT * FROM produit WHERE reference = :reference");
             $verif_ref->bindValue(':reference', $_POST['reference'], PDO::PARAM_STR);
@@ -77,23 +73,23 @@ if(!empty($_POST))
             {
                 $erreur .= '<div class="alert alert-danger col-md-8 col-md-offset-2 text-center">La référence existe déjà. Merci de rentrer un référence valide !</div>';
             }
-        $content .= $erreur;    //⚠️ pr stocker ce que contient la variable $erreur
+            $content .= $erreur;    //⚠️ ⚠️ pr stocker ce que contient la variable $erreur
 
             if(empty($erreur))
-            {
+            {   // ⚠️ on prépare marqueurs de tous les champs :
                 $resultat = $pdo->prepare("INSERT INTO produit(reference, categorie, titre, description, couleur, taille, public, photo, prix, stock) VALUES (:reference, :categorie, :titre, :description, :couleur, :taille, :public, :photo, :prix, :stock)");
 
-                $content .='<div class="alert alert-sucess col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span>a bien été ajouté</div>';
+                $content .='<div class="alert alert-sucess col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span>a bien été ajouté</div>';   // OK AJOUTÉ
             }
-            }
-            else    // si pas ?action=ajout mais?action=modification > modifier pdt à l'aide d'une requête préparée :
-            {
-                $resultat = $pdo->prepare("UPDATE produit SET reference = :reference, categorie = :categorie, titre = :titre, description = :description, couleur = :couleur, taille = :taille, public = :public, photo = :photo, prix = :prix, stock = :stock WHERE id_produit = '$_POST[id_produit]'");
+        }
+        else    // si pas ?action=ajout MAIS ?action=modification > ⚠️ MODIFIER pdt à l'aide d'une requête préparée :
+        {
+            $resultat = $pdo->prepare("UPDATE produit SET reference = :reference, categorie = :categorie, titre = :titre, description = :description, couleur = :couleur, taille = :taille, public = :public, photo = :photo, prix = :prix, stock = :stock WHERE id_produit = '$_POST[id_produit]'");
 
-                $content .='<div class="alert alert-success col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span> a bien été modifié</div>';
-            }
-
-            $resultat->bindValue(':reference', $_POST['reference'], PDO::PARAM_STR); 
+            $content .='<div class="alert alert-success col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span> a bien été modifié</div>';    // OK MODIFIÉ
+        }
+            // ⚠️ on affecte val aux marqueurs à afficher ds les champs à modif :
+           // $resultat->bindValue(':reference', $_POST['reference'], PDO::PARAM_STR); 
             $resultat->bindValue(':categorie', $_POST['categorie'], PDO::PARAM_STR);
             $resultat->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
             $resultat->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
@@ -109,7 +105,7 @@ if(!empty($_POST))
 }
 
 
-//⚠️ ⚠️ ⚠️-------------  LIENS PRODUITS     (.= ==> pour pas effacer données déjà contenues dedans, on ajoute)
+//⚠️⚠️⚠️ -------------  BACK OFFICE //⚠️⚠️⚠️  
 $content .= '<div class="list-group col-md-6 col-md-offset-3">';
 $content .= '<h3 class="list-group-item active text-center">BACK OFFICE</h3>';  // 'active' -> met en bleu
 $content .= '<a href="?action=affichage" class="list-group-item text-center">Affichage produit</a>';
@@ -117,94 +113,88 @@ $content .= '<a href="?action=ajout" class="list-group-item text-center">Ajout p
 $content .= '<hr></div>';
 
 
-
-//⚠️ ⚠️ ⚠️------------- AFFICHAGE PRODUITS
+//⚠️⚠️⚠️ ------------- AFFICHAGE PRODUITS
 if(isset($_GET['action']) && $_GET['action'] == 'affichage')  
-// = si j'ai bien cliqué sur 'Affichage produit' (= envoyé act° ds URL) + est-ce que action est bien = affichage ('produit'), alors j'afficherai tablo pdt
+// = si bien cliqué sur 'Affichage pdt' (= envoyé act° ds URL) + que action est bien = affichage pdt > alors j'afficherai tablo pdt :
 {
-
-    // EXO : Aff la table pdt ss forme de tablo HTML, prévoir un lien modification et suppression pour chaque produit.
-    $resultat = $pdo->query("SELECT * FROM produit");
+    // Aff table pdt en tablo HTML + prévoir un lien modification et suppression pour chq pdt (= + 2 col)
+    $resultat = $pdo->query("SELECT * FROM produit");   // => objet class PDOStatement
     $content .= '<div class="col-md-10 col-md-offset-1 text-center"><h3 class="alert alert-success">Affichage produits</h3>';
         $content .= 'Nombre de produit(s) dans la boutique : <span class="badge text-danger">' . $resultat->rowCount() . '</span></div>';
 
-
         $content .= '<table class="col-md-10 table" style="margin-top: 15px;"><tr>';
-            for($i = 0; $i < $resultat->columnCount(); $i++)    // columnCount() = méthode issue de la class PDOStatement 
+            for($i = 0; $i < $resultat->columnCount(); $i++)    // columnCount() = méthode from class PDOStatement 
             // ⚠️️ retourne NB de champs/colonnes de la table, tant qu'il y a des colonnes, on boucle.
             {
-                $colonne = $resultat->getColumnMeta($i);    // getColumnMeta() = méthode issue de la class PDOStatement
-                // ⚠️️ récolte INFOS des champs/colonnes, pour chq tour ⚠️️ $colonne contient un tablo ARRAY des infos d'une colonne.
+                $colonne = $resultat->getColumnMeta($i);    // getColumnMeta() = méthode from class PDOStatement
+                // ⚠️️ récolte INFOS des champs/colonnes à chq tour ⚠️️ $colonne contient un ARRAY des infos d'une colonne.
         
-                $content .= '<th>' . $colonne['name'] . '</th>';   //⚠️️ on a créé la 1ère lg
-                // On va crocheter à l'indice 'name' pour afficher le nom des colonnes.
+                $content .= '<th>' . $colonne['name'] . '</th>';
+                //⚠️️  On va crocheter à l'indice 'name' pour afficher le nom des colonnes => 1ère lg
             }
 
             // On ajoute 2 col
             $content .= '<th>modification</th>';
             $content .= '<th>suppression</th>';
-
             $content .= '</tr>';
         
                 while($ligne = $resultat->fetch(PDO ::FETCH_ASSOC)) // On associe le méthode fetch() au résultat, 
-                // ⚠️️ $ligne CONTIENT un tablo ARRAY ac les infos d'un pdt à chaq tour de boucle.
+                // ⚠️️ $ligne CONTIENT un ARRAY des infos d'1 pdt à chaq tour de boucle.
                 {
-                    // debug($ligne);  // --> pr voir contenu URL-> aff. les ARRAY de chq pdt (= 1 tablo à chq tour de boucle whie)            
+                    // debug($ligne);  // --> pr voir contenu URL (le ARRAY pdt)           
                     $content .= '<tr>';
                         foreach($ligne as $indice => $valeur)  // parcourt chq tablo de chq pdt
                         {                       
-                            
                             // Aff. des tofs pdt
                             if($indice == 'photo')
                             {
                                 $content .= '<td><img src="' . $valeur . '" alt="" width="70" height="70"</td>';
-                                // Pr chaq tour créé une cellule ac une val d'1 indice
+                                // ⚠️️ Chaq tour créé une cellule ac une val d'1 indice
                             }
                             else
                             {
                                 $content .= '<td>' . $valeur . '</td>';
-                            }
-                        
-                        
+                            }                      
                         }
 
-
-                    // Faire lien vers produit pour le suppr ou modif
-                    $content .= '<td class="text-center"><a href="?action=modification&id_produit=' . $ligne['id_produit'] . '"><span class="glyphicon glyphicon-pencil"></span></a></td>';     // ⚠️️ envoi de l'action modif sur id_pdt ds l'URL
-                    // url passe de http://localhost/PHP/boutique/admin/gestion_boutique.php
-                    //        à --> http://localhost/PHP/boutique/admin/gestion_boutique.php?action=modification&id_produit=1
-                    // On crochète à l'indice id_pdt (car tous différent) ds l'ARRAY pdt 
+                    // ⚠️️⚠️️ Créer lien + Envoyer l'action MODIF + id du pdt ds l'URL :
+                    $content .= '<td class="text-center"><a href="?action=modification&id_produit=' . $ligne['id_produit'] . '"><span class="glyphicon glyphicon-pencil"></span></a></td>';     
+                    // url passe de http:...admin/gestion_boutique.php
+                    //        à --> http:...admin/gestion_boutique.php?action=modification&id_produit=1
+                    // ⚠️️⚠️️ Créer lien + Envoyer l'action SUPPR + id du pdt ds l'URL :
                     $content .= '<td class="text-center"><a href="?action=suppression&id_produit=' . $ligne['id_produit'] . '" Onclick="return(confirm(\'En êtes vous certain ?\'));"><span class="glyphicon glyphicon-trash"></span></a></td>';
-                            // Onclick="return(confirm(\'En êtes vous certain ?\')); = alerte avant de jeter
+                            // ⚠️️ Onclick="return(confirm(\'En êtes vous certain ?\')); = alerte avant de jeter
 
                     $content .= '</tr>';
-                }
-            
+                }           
         $content .= '</table>';
 }    
-
 
 require_once("../inc/header.inc.php");
 echo $content;  // ⚠️⚠️⚠️  Appelle(tt le contenu stocké depuis debut) le message d'erreur (ref déjà présente, cf lg 21)
 
-// Normalement faire aussi le contrôle des champs...
 
-if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == 'modification')) // si ajout ou si modif 
+//-------------------------------------------------------------------------------------------------------------------
+
+
+// ⚠️️ Normalement faire aussi le contrôle des champs...
+
+//⚠️⚠️⚠️ ------------- AJOUT ou MODIF des pdts
+if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == 'modification'))
 {   // Formulaire HTML de table produit de la BDD (⚠️ sauf l'id produit) -->
             
-
-    if(isset($_GET['id_produit']))
+    if(isset($_GET['id_produit']))  // <=> c une MODIF
     {
         $resultat = $pdo->prepare("SELECT * FROM produit WHERE id_produit = :id_produit");
         $resultat->bindValue(':id_produit', $_GET['id_produit'], PDO::PARAM_INT);
         $resultat->execute();
             // but = recup en 1 objet : ttes les infos du pdt requis > associer méthode :
-        $produit_actuel = $resultat->fetch(PDO::FETCH_ASSOC);   // => fetch pr obtenir tablo
-        // debug($produit_actuel);  --> on voit le tablo du pdt à modifier
+        $produit_actuel = $resultat->fetch(PDO::FETCH_ASSOC);   // => fetch pr obtenir tablo nex pdt
+            // debug($produit_actuel);  --> on voit le tablo du pdt à modifier
     
     }
     
-    // ⚠️ si id_produit défini ds BDD > on l'affiche sinon > on aff chaine de caract vide (ifelse réduit : ?..=..
+    // ⚠️ si id_produit est défini ds BDD > on l'affiche sinon > on aff chaine de caract vide ! ⚠️ ifelse RÉDUIT : ?..=.. ⚠️ !
     $id_produit = (isset($produit_actuel['id_produit'])) ? $produit_actuel['id_produit'] : '';
     $reference = (isset($produit_actuel['reference'])) ? $produit_actuel['reference'] : ''; 
     $categorie = (isset($produit_actuel['categorie'])) ? $produit_actuel['categorie'] : ''; 
@@ -215,15 +205,22 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == '
     $public = (isset($produit_actuel['public'])) ? $produit_actuel['public'] : ''; 
     $photo = (isset($produit_actuel['photo'])) ? $produit_actuel['photo'] : ''; 
     $prix = (isset($produit_actuel['prix'])) ? $produit_actuel['prix'] : ''; 
-    $stock = (isset($produit_actuel['stock'])) ? $produit_actuel['stock'] : '';  
+    // $stock = (isset($produit_actuel['stock'])) ? $produit_actuel['stock'] : '';  
+    if($stock = (isset($produit_actuel['stock'])))
+    {
+        $stock;
+    } 
+    else
+    {
+        
+    }    
 
-
-    
 // Besoin d'un champs caché pour stocker infos de ce pdt :  <input type="hidden" id="id_produit" name="id_produit">
     // -> si on met text au lieu de hidden > on voit bien que l'on est sur l'id du pdt cliqué pr modif
-// ucfirst($_GET['action']) => récupère le mot 'Ajout' ou 'Modification'
+// ⚠️ ' eucfirst($_GET['action']) . ' => pr récup action de URL : 'Ajout' ou 'Modification' et adapter ainsi titre formulaire !
 // ⚠️ enctype="multipart/form-data" = pour recup infos sur photo
-// disabled = pas modifiable !
+// ⚠️ $php ou if() js => pour afficher dans les champs de objet à modif
+// disabled = pas modifiable ! (après réf avant ' > ')
 
     echo '<form method="post" action="" enctype="multipart/form-data" class="col-md-8 col-md-offset-2">
             <h1 class="alert alert-info text-center">' . ucfirst($_GET['action']) . '</h1> 
@@ -233,7 +230,7 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == '
             <div class="form-group">
                 <label for="reference">Référence</label>
                 <input type="text" class="form-control" id="reference" name="reference" placeholder="reference"
-                value="' . $reference . '" disabled>
+                value="' . $reference . '" >
             </div>
             <div class="form-group">
                 <label for="categorie">Catégorie</label>
@@ -279,7 +276,7 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == '
                 <input type="file" id="photo" name="photo" value="' . $photo . '"><br>';
                 if(!empty($photo))
                 {
-                    echo '<i>Vous pouvez umploader une nouvelle photo si vous souhaitez la changer</i><br>';
+                    echo '<i>Vous pouvez uploader une nouvelle photo si vous souhaitez la changer</i><br>';
                     echo '<img src="' . $photo . '"width="90 height="90" value="' . $photo . '"><br>';
                 }
                 echo '<input type="hidden" id="photo_actuelle" name="photo_actuelle" value="' . $photo . '">';
@@ -302,6 +299,6 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == '
     </form>';
 }
 
-
+//-------------------------------------------------------------------------------------------------------------------
 require_once("../inc/footer.inc.php");
 ?>

@@ -27,6 +27,7 @@ require_once("inc/header.inc.php");
             <li>Nom : <?= $_SESSION ['membre']['nom']; ?></li>
             <li>Prénom : <?= $_SESSION ['membre']['prenom']; ?></li>
             <li>Email : <?= $_SESSION ['membre']['email']; ?></li>
+            <li>Ville : <?= $_SESSION ['membre']['ville']; ?></li>
             <li>Code postal : <?= $_SESSION ['membre']['code_postal']; ?></li>
             <li>Adresse : <?= $_SESSION ['membre']['adresse']; ?></li>
             <li>Nom : <?= $_SESSION ['membre']['nom']; ?></li>      

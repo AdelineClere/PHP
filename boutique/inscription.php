@@ -16,7 +16,7 @@ if($_POST)
     $verif_pseudo->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
     $verif_pseudo->execute();
     
-        if($verif_pseudo->rowCount() > 0)   // ⚠️ compte le nb de lg sélectionnées par ma requête => un INTEGER (combien)
+        if($verif_pseudo->rowCount() > 0)   // ⚠️ compte le nb de lg sélectionnées par ma requête => si = 1 > déjà pris !
         {
             $erreur .= '<div class="alert alert-danger col-md-8 col-md-offset-2 text-center">Pseudo indisponible !!</div>';
         }
@@ -34,7 +34,7 @@ if($_POST)
         }
         if(!is_numeric($_POST['code_postal']) || strlen($_POST['code_postal']) !=5)
         {
-            $erreur .= '<div class="alert alert-danger col-md-8 col-md-offset-2 text-center">Code postal  non valide !!</div>';
+            $erreur .= '<div class="alert alert-danger col-md-8 col-md-offset-2 text-center">Code postal non valide !!</div>';
         }
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
         {
@@ -44,14 +44,12 @@ if($_POST)
         $content .= $erreur;
 
 
-        if(empty($erreur)) // si pas de $erreur > ⚠️ peut s'insérer ds table membre à l'aide de requête préparée
-        {
-            // EXO : réal. le script pour INSERER ds la table membre à l'aide d'une REQUETE PREPAREE
-            
+        if(empty($erreur)) // si 0 $erreur > ⚠️ s'insérer ds table membre à l'aide de requête préparée
+        {            
             // $_POST['mdp'] = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
             // On ne conserve jamais mdp en clair ds BDD => ⚠️ ⚠️ password_hash permet de hacher le mdp en algorithme
 
-            $resultat = $pdo->prepare("INSERT INTO membre(pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse) VALUES (:pseudo,:mdp,:nom,:prenom,:email,:civilite,:ville,:code_postal,:adresse)");
+            $resultat = $pdo->prepare("INSERT INTO membre(pseudo, mdp, nom, prenom, email, civilite, ville, code_postal, adresse) VALUES (:pseudo, :mdp, :nom, :prenom, :email, :civilite, :ville, :code_postal, :adresse)");
 
             $resultat->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);  // ️associer une valeur aux marqueurs
             $resultat->bindValue(':mdp', $_POST['mdp'], PDO::PARAM_STR);
@@ -65,16 +63,16 @@ if($_POST)
 
             $resultat->execute(); 
             
+            // inscription ok > lien pr se connecter
             $content .='<div class="alert alert-succes col-md-8 col-md-offset-2 text-center">Vous êtes inscrite sur notre site web !! <br> <a href="connexion.php" class="alert-link">Cliquez ici pour vous connecter</a></div>';
         }
 }
 
 
 
-
-
 require_once("inc/header.inc.php");  
-echo $content;  // on a stocké tt le contenu de l'erreur ds une val pour appeler qu'un seule fois (l'erreur + le contenu du messag d'erreur)
+echo $content;  
+// ⚠️ on a stocké tt le contenu des erreurs ds une val pour appeler qu'une seule fois (l'erreur + le contenu du messag d'erreur)
 ?>
 
 
