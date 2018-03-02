@@ -69,17 +69,17 @@ if(!empty($_POST))
             $verif_ref->bindValue(':reference', $_POST['reference'], PDO::PARAM_STR);
             $verif_ref->execute();  // execute, rowCount,... : methodes de PDOStatement
         
-            if($verif_ref->rowCount() > 0)   //⚠️ cpt nb de lg sélectionnées par ma requête => un INTEGER (combien)
+            if($verif_ref->rowCount() > 0)   //⚠️ cpt nb de lg sélectionnées par ma requête => Réf existe déjà !
             {
                 $erreur .= '<div class="alert alert-danger col-md-8 col-md-offset-2 text-center">La référence existe déjà. Merci de rentrer un référence valide !</div>';
             }
-            $content .= $erreur;    //⚠️ ⚠️ pr stocker ce que contient la variable $erreur
+            $content .= $erreur;    //⚠️⚠️ pr stocker ce que contient la variable $erreur
 
-            if(empty($erreur))
+            if(empty($erreur))  // on rentre pas ici dc mettre un if empty lg 93
             {   // ⚠️ on prépare marqueurs de tous les champs :
                 $resultat = $pdo->prepare("INSERT INTO produit(reference, categorie, titre, description, couleur, taille, public, photo, prix, stock) VALUES (:reference, :categorie, :titre, :description, :couleur, :taille, :public, :photo, :prix, :stock)");
 
-                $content .='<div class="alert alert-sucess col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span>a bien été ajouté</div>';   // OK AJOUTÉ
+                $content .='<div class="alert alert-success col-md-8 col-md-offset-2 text-center">Le produit n° <strong class="text-success">' . $_POST['reference'] . '</strong> a bien été ajouté</div>';   // OK AJOUTÉ
             }
         }
         else    // si pas ?action=ajout MAIS ?action=modification > ⚠️ MODIFIER pdt à l'aide d'une requête préparée :
@@ -88,20 +88,23 @@ if(!empty($_POST))
 
             $content .='<div class="alert alert-success col-md-8 col-md-offset-2 text-center">Le produit n° <span class="text-success">' . $_GET['id_produit'] . '</span> a bien été modifié</div>';    // OK MODIFIÉ
         }
-            // ⚠️ on affecte val aux marqueurs à afficher ds les champs à modif :
-           // $resultat->bindValue(':reference', $_POST['reference'], PDO::PARAM_STR); 
-            $resultat->bindValue(':categorie', $_POST['categorie'], PDO::PARAM_STR);
-            $resultat->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
-            $resultat->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-            $resultat->bindValue(':couleur', $_POST['couleur'], PDO::PARAM_STR);
-            $resultat->bindValue(':taille', $_POST['taille'], PDO::PARAM_STR);
-            $resultat->bindValue(':public', $_POST['public'], PDO::PARAM_STR);
-            $resultat->bindValue(':photo', $photo_bdd, PDO::PARAM_STR);         //⚠️ car c'est URL de tof que l'on prend
-            $resultat->bindValue(':prix', $_POST['prix'], PDO::PARAM_INT);      // INT !
-            $resultat->bindValue(':stock', $_POST['stock'], PDO::PARAM_INT);    // INT !
+            //⚠️ on affecte val aux marqueurs à afficher ds les champs à modif :
 
-            $resultat->execute(); 
-      
+            if(empty($erreur))  // mettre ici pas lg 83 : après avoir prep les marqueurs
+            {        
+                $resultat->bindValue(':reference', $_POST['reference'], PDO::PARAM_STR); 
+                $resultat->bindValue(':categorie', $_POST['categorie'], PDO::PARAM_STR);
+                $resultat->bindValue(':titre', $_POST['titre'], PDO::PARAM_STR);
+                $resultat->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
+                $resultat->bindValue(':couleur', $_POST['couleur'], PDO::PARAM_STR);
+                $resultat->bindValue(':taille', $_POST['taille'], PDO::PARAM_STR);
+                $resultat->bindValue(':public', $_POST['public'], PDO::PARAM_STR);
+                $resultat->bindValue(':photo', $photo_bdd, PDO::PARAM_STR);         //⚠️ car c'est URL de tof que l'on prend
+                $resultat->bindValue(':prix', $_POST['prix'], PDO::PARAM_INT);      // INT !
+                $resultat->bindValue(':stock', $_POST['stock'], PDO::PARAM_INT);    // INT !
+
+                $resultat->execute(); 
+            }    
 }
 
 
@@ -205,15 +208,16 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == '
     $public = (isset($produit_actuel['public'])) ? $produit_actuel['public'] : ''; 
     $photo = (isset($produit_actuel['photo'])) ? $produit_actuel['photo'] : ''; 
     $prix = (isset($produit_actuel['prix'])) ? $produit_actuel['prix'] : ''; 
-    // $stock = (isset($produit_actuel['stock'])) ? $produit_actuel['stock'] : '';  
-    if($stock = (isset($produit_actuel['stock'])))
-    {
-        $stock;
-    } 
-    else
-    {
-        
-    }    
+    $stock = (isset($produit_actuel['stock'])) ? $produit_actuel['stock'] : '';
+    // ou
+        // if(isset($produit_actuel['id_produit']))
+        // {
+        //     echo $produit_actuel['id_produit'];
+        // } 
+        // else
+        // {
+        //     echo '';
+        // }    
 
 // Besoin d'un champs caché pour stocker infos de ce pdt :  <input type="hidden" id="id_produit" name="id_produit">
     // -> si on met text au lieu de hidden > on voit bien que l'on est sur l'id du pdt cliqué pr modif

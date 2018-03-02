@@ -14,3 +14,24 @@ footer {
 .ma-nav {
     border-radius: 0;
 }
+.border {
+    border: 1px solid gray;
+}
+/*
+.descriptif {
+    padding: 8px;
+}
+.btn-descriptif {
+    background: red;   
+    text-align: right;
+}
+
+
+.contenufp {
+    padding-left: 20px;
+}
+*/
+.tofProduit {
+    display: inline;
+    text-align: center;
+}
