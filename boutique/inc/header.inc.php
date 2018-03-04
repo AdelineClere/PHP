@@ -53,24 +53,24 @@
             <?php
             if(internauteEstConnecteEtEstAdmin())
             { // accès administrateur
-              echo '<li><a href="' . URL . 'admin/gestion_membre.php">Gestion des membres</a></li>';
-              echo '<li><a href="' . URL . 'admin/gestion_commande.php">Gestion des commandes</a></li>';
-              echo '<li><a href="' . URL . 'admin/gestion_boutique.php">Gestion de la boutique</a></li>';
+              echo '<li><a href="' . URL . 'admin/gestion_membre.php"> Gestion des membres </a></li>';
+              echo '<li><a href="' . URL . 'admin/gestion_commande.php"> Gestion des commandes </a></li>';
+              echo '<li><a href="' . URL . 'admin/gestion_boutique.php"> Gestion de la boutique </a></li>';
             } 
             if(internauteEstConnecte())
             { // accès membre
-              echo '<li><a href="' . URL . 'profil.php">Profil</a></li>';
-              echo '<li><a href="' . URL . 'boutique.php">Boutique</a></li>';
-              echo '<li><a href="' . URL . 'panier.php">Panier</a></li>';
-              echo '<li><a href="' . URL . 'connexion.php?action=deconnexion">Deconnexion</a></li>';
+              echo '<li><a href="' . URL . 'profil.php"> Profil </a></li>';
+              echo '<li><a href="' . URL . 'boutique.php"> Boutique </a></li>';
+              echo '<li><a href="' . URL . 'panier.php"> Panier </a></li>';
+              echo '<li><a href="' . URL . 'connexion.php?action=deconnexion"> Deconnexion </a></li>';
               // ⚠️  '?' => envoi l'info de deconnexion dans l'url (cf. pg connexion : if(isset($_GET['action']) && $_GET['action']='deconnexion'))
             }
             else
             { // accès visiteur
-              echo '<li><a href="' . URL . 'inscritpion.php">Inscription</a></li>';
-              echo '<li><a href="' . URL . 'connexion.php">Connexion</a></li>';
-              echo '<li><a href="' . URL . 'boutique.php">Boutique</a></li>';
-              echo '<li><a href="' . URL . 'panier.php">Panier</a></li>';
+              echo '<li><a href="' . URL . 'inscription.php"> Inscription </a></li>';
+              echo '<li><a href="' . URL . 'connexion.php"> Connexion </a></li>';
+              echo '<li><a href="' . URL . 'boutique.php"> Boutique </a></li>';
+              echo '<li><a href="' . URL . 'panier.php"> Panier </a></li>';
             }
 
             ?>

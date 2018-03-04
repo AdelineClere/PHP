@@ -1,23 +1,27 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fnil\fcharset0 AppleColorEmoji;\f1\fswiss\fcharset0 ArialMT;}
+{\fonttbl\f0\fnil\fcharset0 AppleColorEmoji;\f1\fswiss\fcharset0 ArialMT;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;}
 {\colortbl;\red255\green255\blue255;\red9\green80\blue208;\red212\green214\blue154;\red23\green23\blue23;
 \red202\green202\blue202;\red194\green126\blue101;\red70\green137\blue204;\red140\green211\blue254;\red167\green197\blue152;
-\red183\green111\blue179;}
+\red183\green111\blue179;\red79\green123\blue61;\red0\green61\blue204;\red0\green31\blue103;\red67\green192\blue160;
+\red205\green173\blue106;}
 {\*\expandedcolortbl;;\cssrgb\c0\c41176\c85098;\cssrgb\c86275\c86275\c66667;\cssrgb\c11765\c11765\c11765;
 \cssrgb\c83137\c83137\c83137;\cssrgb\c80784\c56863\c47059;\cssrgb\c33725\c61176\c83922;\cssrgb\c61176\c86275\c99608;\cssrgb\c70980\c80784\c65882;
-\cssrgb\c77255\c52549\c75294;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww17960\viewh26260\viewkind0
+\cssrgb\c77255\c52549\c75294;\cssrgb\c37647\c54510\c30588;\csgenericrgb\c0\c23922\c80000;\csgenericrgb\c0\c12157\c40392;\cssrgb\c30588\c78824\c69020;
+\cssrgb\c84314\c72941\c49020;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19040\viewh27380\viewkind0
 \deftab720
 \pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\f0\fs32 \cf0 \expnd0\expndtw0\kerning0
+\f0\fs34 \cf0 \expnd0\expndtw0\kerning0
 \uc0\u9888 \u65039 
 \f1 \'a0\
 {\field{\*\fldinst{HYPERLINK "http://php.net/manual/fr/index.php"}}{\fldrslt \cf2 \ul \ulc2 http://php.net/manual/fr/index.php}}\
 {\field{\*\fldinst{HYPERLINK "http://php.net/manual/fr/indexes.functions.php"}}{\fldrslt \cf2 \ul \ulc2 http://php.net/manual/fr/indexes.functions.php}}\
  \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b PHP > pour cr\'e9er site dynamique <=> qui communique avec une BDD par l'inrem\'e9d. de Interpr\'e9tateur
+\b \cf0 PHP > pour cr\'e9er site dynamique <=> qui communique avec une BDD par l'inrem\'e9d. de Interpr\'e9tateur
 \b0 \
 Le php est traduit c\'f4t\'e9 serveur = donc s\'e9curis\'e9 au max !\
 Si le serveur d\'e9tecte que du html (= site statique = vitrine) il renvoi direct \'e0 client\
@@ -25,22 +29,31 @@ Si le serveur d\'e9tecte du php (= site dynamique) il peut pas r\'e9pondre \'e0 
 1. requ\'eate > 2. serveur web > 3.  Envoi html contenant php \'e0 interpr\'e9tateur > 4. BDD > 5. Renvoi r\'e9p. \'e0 interpr\'e9tateur > 6. reponse \'e0 client ?\
 \
 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b echo ' ';
+\b \cf0 echo ' ';
 \b0  	=	print ' ';	=	 
 \b <?= \'85.. ?>
 \b0 \
 echo 
 \b gettype
 \b0 ($\'85);\
-\
+
+\fs20 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
 If (
 \b empty
 \b0 ($\'85)) 	 \{\}\
 If (
 \b isset
 \b0 ($))	\{\}	\
+
+\fs20 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
 =	==		===		>	<	=>	=>	!	!=	&&	||	XOR\
+
+\fs20 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
 
 \b switch
 \b0 ()	\{	
@@ -56,6 +69,9 @@ If (
 			
 \b default
 \b0 : 	\}\
+
+\fs20 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
 
 \b If 
 \b0 /
@@ -73,6 +89,9 @@ If (
 \b  :
 \b0  "\'85\'85\'85\'85\'85";\
 \
+
+\fs20 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
 echo 
 \b date
 \b0  ("d/m/Y");\
@@ -89,9 +108,8 @@ echo
 echo 
 \b substr
 \b0 ($texte, 0 , 20)\
-\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b \cf0 count
+\b count
 \b0 ($\'85);\
 
 \b round
@@ -102,271 +120,879 @@ echo
 echo 
 \b implode
 \b0 ($\'85.); \
-\pard\pardeftab720\sl336\slmult1\partightenfactor0
-\cf0 \
+
+\fs20 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
 
 \b function xxxxx()
 \b0 	-	
 \b \{
-\b0 	
+\b0   
 \b return
 \b0  $\'85  
 \b \}
 \b0 	-	
 \b echo
 \b0  xxxxx(\'85.);\
-\pard\pardeftab720\sl336\slmult1\partightenfactor0
-\cf0 function xxxxx($\'85.)	\{\}\
+function xxxxx($\'85.)	\{\}\
 xxxxx("\'85..");\
-\
-\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\pard\tx2265\tx3388\tx4536\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs20 \cf0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
 
 \b \cf0 while
 \b0 ($I < x)	-	\{  echo " ";	-	$I++;  \}	\
 
 \b for
 \b0  ($i = 0; $i < 6; $i++)	\{. Echo $i;  \}\
-\
+\pard\tx2265\tx3388\tx4536\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b foreach
+\fs20 \cf0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b \cf0 foreach
 \b0 ($tab 
 \b as
 \b0  $indice 
 \b =>
 \b0  $info)	\{\}\
+\pard\tx2265\tx3388\tx4536\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs20 \cf0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\fs34 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 LE LANGAGE
+\b0\fs34 \
+ \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
 \
 
-\b inc
-\b0  :\
-
-\b require_once
-\b0 ("inc/\'85..php");		(ou include_once)\
-\
-\
-\
-
-\b\fs48 LE LANGAGE
-\b0\fs32 \
- \
-
-\fs24 \cf3 \cb4 echo\cf5  \cf6 'Allo'\cf5 ;
-\fs32 \cf0 \cb1 	=	
-\fs24 \cf3 \cb4 print\cf5  \cf6 'Allo'\cf5 ;
-\fs32 \cf0 \cb1 		=	
-\fs24 \cf7 \cb4 <?=\cf5  \cf6 "Allo"\cf5  \cf7 ?>\cf5  
-\fs32 \cf0 \cb1 		\
-\
-\
-
-\b\fs48 	VARIABLES
-\b0\fs32 \
-\
-
-\fs24 \cf8 \cb4 $a\cf5  = \cf9 127\cf5 ;\cf5 \cb1 					\
-\cf3 \cb4 echo\cf5  \cf3 gettype\cf5 (\cf8 $a\cf5 );\cf5 \cb1 		
-\fs32 \cf0 -> integer
-\fs24 \cf5 \
-\cf3 \cb4 echo\cf5  \cf6 '<br>'\cf5 ;\cf5 \cb1 		\
-\
-\cf8 \cb4 $b\cf5  = \cf9 1.5\cf5 ;\cf5 \cb1 				
-\fs32 \cf0 -> double\
-
-\fs24 \cf8 \cb4 $c\cf5  = \cf6 "une chaine"\cf5 ;\cf5 \cb1 		
-\fs32 \cf0 -> string\
-
-\fs24 \cf8 \cb4 $d\cf5  = \cf6 '127'\cf5 ;\cf5 \cb1 			
-\fs32 \cf0 -> string\
-
-\fs24 \cf8 \cb4 $e\cf5  = \cf7 true/false\cf5 ;\cf5 \cb1 		
-\fs32 \cf0 -> boolean\
-\
+\fs26 \cf3 \cb4 echo\cf5  \cf6 'Allo'\cf5 ;
+\fs34 \cf0 \cb1 	=	
+\fs26 \cf3 \cb4 print\cf5  \cf6 'Allo'\cf5 ;
+\fs34 \cf0 \cb1 		=	
+\fs26 \cf7 \cb4 <?=\cf5  \cf6 "Allo"\cf5  \cf7 ?>\cf5  
+\fs34 \cf0 \cb1 		\
 \
 \
 
-\b\fs48 	CONCATENATION\
+\b\fs50 VARIABLES
+\b0\fs34 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
 
-\b0\fs32 \
+\fs26 \cf8 \cb4 $a\cf5  = \cf9 127\cf5 ;\cb1 					\
+\cf3 \cb4 echo\cf5  \cf3 gettype\cf5 (\cf8 $a\cf5 );\cb1 		
+\fs34 \cf0 -> integer
+\fs26 \cf5 \
+\cf3 \cb4 echo\cf5  \cf6 '<br>'\cf5 ;\cb1 		\
+\
+\cf8 \cb4 $b\cf5  = \cf9 1.5\cf5 ;\cb1 			
+\fs34 \cf0 -> double\
 
-\fs24 \cf8 \cb4 $a\cf5  = \cf6 "xxx"\cf5 ;\cf5 \cb1 \
-\cf8 \cb4 $a\cf5  = \cf6 "yyy"\cf5 ;\cf5 \cb1 \
-\cf3 \cb4 echo\cf5 \cb4  \cf8 \cb4 $a\cf5 \cb4 ;\cf5 \cb1 			
-\fs32 \cf0 -> xxx\
+\fs26 \cf8 \cb4 $c\cf5  = \cf6 "une chaine"\cf5 ;\cb1 		
+\fs34 \cf0 -> string\
 
-\fs24 \cf5 \
-\cf8 \cb4 $b\cf5   = \cf6 "xxx"\cf5 ;\cf5 \cb1 \
-\cf8 \cb4 $b\cf5  .= \cf6 " yyy"\cf5 ;  \cf5 \cb1 \
-\cf3 \cb4 echo\cf5  \cf8 $b\cf5 ; \cf5 \cb1 			
-\fs32 \cf0 -> xxx yyy\
+\fs26 \cf8 \cb4 $d\cf5  = \cf6 '127'\cf5 ;\cb1 			
+\fs34 \cf0 -> string\
+
+\fs26 \cf8 \cb4 $e\cf5  = \cf7 true/false\cf5 ;\cb1 		
+\fs34 \cf0 -> boolean\
 \
 \
 \
 
-\b\fs48 	CONSTANTE magique\
+\b\fs50 CONCATENATION\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0\fs34 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs26 \cf8 \cb4 $a\cf5  = \cf6 "xxx"\cf5 ;\cb1 \
+\cf8 \cb4 $a\cf5  = \cf6 "yyy"\cf5 ;\cb1 \
+\cf3 \cb4 echo\cf5  \cf8 $a\cf5 ;\cb1 			
+\fs34 \cf0 -> xxx\
+
+\fs26 \cf5 \
+\cf8 \cb4 $b\cf5   = \cf6 "xxx"\cf5 ;\cb1 \
+\cf8 \cb4 $b\cf5  .= \cf6 " yyy"\cf5 ;  \cb1 \
+\cf3 \cb4 echo\cf5  \cf8 $b\cf5 ; \cb1 			
+\fs34 \cf0 -> xxx yyy\
+\
 \
 
-\b0\fs24 \cf3 \cb4 echo\cf5  \cf7 __FILE__\cf5 ;\cf5 \cb1 		
-\fs32 \cf0 -> chemin vers fichier
-\fs24 \cf5 \
-\cf3 \cb4 echo\cf5  \cf7 __LINE__\cf5 ;\cf5 \cb1 		
-\fs32 \cf0 -> lg du fichier
-\fs24 \cf5 \
+\b\fs50 CONSTANTE magique\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b\fs48 \cf0 \
-\
-	OP\'c9RATEURS ARITHMETIQUES\
-\
+\b0\fs34 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b0\fs24 \cf8 \cb4 $a\cf5  += \cf8 $b\cf5 ;\cf5 \cb1 			
-\fs32 \cf0 ->  a + b
-\fs24 \cf5 \
-\cf8 \cb4 $a\cf5 \cb4  -= \cf8 \cb4 $b\cf5 \cb4 ;\cf5 \cb1 			
-\fs32 \cf0 -> a - b\
+\b\fs50 \cf0 \
 
-\fs24 \cf8 \cb4 $a\cf5 \cb4  *= \cf8 \cb4 $b\cf5 \cb4 ;\cf5 \cb1 			
-\fs32 \cf0 -> a * b\
+\b0\fs26 \cf3 \cb4 echo\cf5  \cf7 __FILE__\cf5 ;\cb1 		
+\fs34 \cf0 -> chemin vers fichier
+\fs26 \cf5 \
+\cf3 \cb4 echo\cf5  \cf7 __LINE__\cf5 ;\cb1 		
+\fs34 \cf0 -> lg du fichier
+\fs26 \cf5 \
 
-\fs24 \cf8 \cb4 $a\cf5 \cb4  /= \cf8 \cb4 $b\cf5 \cb4 ;\cf5 \cb1 			
-\fs32 \cf0 -> a / b\
+\b\fs50 \cf0 \
+OP\'c9RATEURS ARITHMETIQUES\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b\fs48 \
+\b0\fs34 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b0\fs32 \
+\b\fs50 \cf0 \
 
-\b\fs48 	STRUCTURES CONDITIONNELLES\
-\
+\b0\fs26 \cf8 \cb4 $a\cf5  += \cf8 $b\cf5 ;\cb1 			
+\fs34 \cf0 ->  a + b
+\fs26 \cf5 \
+\cf8 \cb4 $a\cf5  -= \cf8 $b\cf5 ;\cb1 			
+\fs34 \cf0 -> a - b\
 
-\b0\fs24 \cf10 \cb4 if\cf5 (\cf3 empty\cf5 (\cf8 $var1\cf5 ))\cf5 \cb1 			
-\fs32 \cf0 ->  test si var = 0, vide ou pas d\'e9finie (ex. : en commentaire)
-\fs24 \cf5 \
+\fs26 \cf8 \cb4 $a\cf5  *= \cf8 $b\cf5 ;\cb1 			
+\fs34 \cf0 -> a * b\
 
-\fs32 \cf0 \{\
+\fs26 \cf8 \cb4 $a\cf5  /= \cf8 $b\cf5 ;\cb1 			
+\fs34 \cf0 -> a / b\
+
+\b\fs50 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0\fs34 \cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 STRUCTURES CONDITIONNELLES\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0\fs34 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0\fs26 \cf10 \cb4 if\cf5 (\cf3 empty\cf5 (\cf8 $var1\cf5 ))\cb1 			
+\fs34 \cf0 ->  test si var = 0, vide ou pas d\'e9finie (ex. : en commentaire)
+\fs26 \cf5 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs34 \cf0 \{\
 \}\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs24 \cf10 \cb4 if\cf5 \cb4 (\cf3 \cb4 isset\cf5 \cb4 (\cf8 \cb4 $var1\cf5 \cb4 ))\cf5 \cb1 			
-\fs32 \cf0 ->  test l'existence d'une var (d\'e9clar\'e9e, d\'e9finie)
-\fs24 \cf5 \
+\fs26 \cf10 \cb4 if\cf5 (\cf3 isset\cf5 (\cf8 $var1\cf5 ))\cb1 			
+\fs34 \cf0 ->  test l'existence d'une var (d\'e9clar\'e9e, d\'e9finie)
+\fs26 \cf5 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs32 \cf0 \{\
+\fs34 \cf0 \{\
 \}\
 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b\fs36 If / else / elseif
-\fs32 \
+\b\fs38 \cf0 If / else / elseif
+\fs34 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b0 \
+\b0 \cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs24 \cf10 \cb4 if\cf5  (\cf8 $a\cf5  == \cf9 \'85\cf5 )\cf5 \cb1 \
-\cf5 \cb4 \{\cf5 \cb1 \
-\cf5 \cb4     \cf3 echo\cf5  \cf6 \'85\cf5 \cb1 \
-\cf5 \cb4 \}\cf5 \cb1 \
+\fs26 \cf10 \cb4 if\cf5  (\cf8 $a\cf5  == \cf9 \'85\cf5 )\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\cb4     \cf3 echo\cf5  \cf6 \'85\cf5 \cb1 \
+\cb4 \}\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 \cf10 \cb4 elseif\cf5 \cb1 					
-\fs32 \cf0 ->  bloque le script si 1\'e8re fond\'b0 respect\'e9e\
+\fs34 \cf0 ->  bloque le script si 1\'e8re fond\'b0 respect\'e9e\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs24 \cf5 \cb4 \{\cb1 \
+\fs26 \cf5 \cb4 \{\cb1 \
 \cb4     \cf3 echo\cf5  \cf6 \'85;\cf5 \cb1 \
 \cb4 \}
-\fs32 \cf0 \cb1 \
+\fs34 \cf0 \cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs24 \cf10 \cb4 else\cf5 \cb1 \
-\cf5 \cb4 \{\cf5 \cb1 \
-\cf5 \cb4     \cf3 echo\cf5  \cf6 \'85\cf5 ;\cf5 \cb1 \
-\cf5 \cb4 \}\cf5 \cb1 \
+\fs26 \cf10 \cb4 else\cf5 \cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\cb4     \cf3 echo\cf5  \cf6 \'85\cf5 ;\cb1 \
+\cb4 \}\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b\fs32 \cf0 \
+\b\fs34 \cf0 \
 \
 
-\fs36 Condition exclusive :
-\fs32 \
+\fs38 Condition exclusive :
+\fs34 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs24 \cf5 \
+\fs26 \cf5 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b0 \cf10 \cb4 if\cf5 (\cf8 $a\cf5  == \cf9 10\cf5  XOR \cf8 $b\cf5  == \cf9 6\cf5 )\cf5 \cb1 		
-\fs32 \cf0 ->  XOR = seulement une des 2 cond\'b0 doit \'ea respect\'e9e\
+\b0 \cf10 \cb4 if\cf5 (\cf8 $a\cf5  == \cf9 10\cf5  XOR \cf8 $b\cf5  == \cf9 6\cf5 )\cb1 		
+\fs34 \cf0 ->  XOR = seulement une des 2 cond\'b0 doit \'ea respect\'e9e\
 \
 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b\fs36 Forme contract\'e9e :
-\fs32 \
+\b\fs38 \cf0 Forme contract\'e9e :
+\fs34 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\b0 \
+\b0 \cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs24 \cf3 \cb4 echo\cf5  (\cf8 $a\cf5  == \cf9 10\cf5 ) ? \cf6 "A =  10"\cf5  : \cf6 "A 
+\fs26 \cf3 \cb4 echo\cf5  (\cf8 $a\cf5  == \cf9 10\cf5 ) ? \cf6 "A =  10"\cf5  : \cf6 "A 
 \b \uc0\u8800 
-\b0  10"\cf5 ;\cf5 \cb1 		
-\fs32 \cf0 -> '?' = if    et    ':' = else
-\fs24 \cf5 \
+\b0  10"\cf5 ;\cb1 		
+\fs34 \cf0 -> '?' = if    et    ':' = else
+\fs26 \cf5 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
 
-\fs32 \cf0 \
+\fs34 \cf0 \
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs38 \cf0 Switch
+\fs34 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs26 \cf8 \cb4 $couleur\cf5  = \cf6 "jaune"\cf5 ;\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf10 \cb4 switch\cf5 (\cf8 $couleur\cf5 )\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\cb4     \cf10 case\cf5  \cf6 'bleu'\cf5 :\cb1 \
+\cb4     \cf3 echo\cf5  \cf6 ...\cf5 ;\cb1 \
+\cb4     \cf10 break\cf5 ;\cb1 \
+\
+\cb4     \cf10 case\cf5  \cf6 'rouge'\cf5 :\cb1 \
+\cb4     \cf3 echo\cf5  \cf6 ...\cf5 ;\cb1 \
+\cb4     \cf10 break\cf5 ;\cb1 \
+\
+\cb4     \cf10 default\cf5 :\cb1 \
+\cb4     \cf3 echo\cf5  \cf6 ...\cf5 ;\cb1 \
+\cb4     \cf10 break\cf5 ;\cb1 \
+\cb4 \}\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs34 \cf0 \
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 FONCTIONS PREDEFINIES\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0\fs34 \cf0 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs26 \cf3 \cb4 echo\cf5  \cf3 date\cf5  (\cf6 "d/m/Y"\cf5 ) . \cf6 "<br>"\cf5 ;\cb1 		
+\fs34 \cf0 -> Date : 21/02/2018\
 \
 
-\b\fs36 Switch
-\fs32 \
-
-\b0 \
-
-\fs24 \cf8 \cb4 $couleur\cf5  = \cf6 "jaune"\cf5 ;\cf5 \cb1 \
-\cf10 \cb4 switch\cf5 (\cf8 $couleur\cf5 )\cf5 \cb1 \
-\cf5 \cb4 \{\cf5 \cb1 \
-\cf5 \cb4     \cf10 case\cf5  \cf6 'bleu'\cf5 :\cf5 \cb1 \
-\cf5 \cb4     \cf3 echo\cf5  \cf6 ...\cf5 ;\cf5 \cb1 \
-\cf5 \cb4     \cf10 break\cf5 ;\cf5 \cb1 \
-\
-\cf5 \cb4     \cf10 case\cf5  \cf6 'rouge'\cf5 :\cf5 \cb1 \
-\cf5 \cb4     \cf3 \cb4 echo\cf5 \cb4  \cf6 \cb4 ...\cf5 \cb4 ;\cf5 \cb1 \
-\cf5 \cb4     \cf10 break\cf5 ;\cf5 \cb1 \
-\
-\cf5 \cb4     \cf10 default\cf5 :\cf5 \cb1 \
-\cf5 \cb4     \cf3 \cb4 echo\cf5 \cb4  \cf6 \cb4 ...\cf5 \cb4 ;\cf5 \cb1 \
-\cf5 \cb4     \cf10 break\cf5 ;\cf5 \cb1 \
-\cf5 \cb4 \}\cf5 \cb1 \
-
-\fs32 \cf0 \
-\
-
-\b\fs48 FONCTIONS PREDEFINIES\
-
-\b0\fs32 \
-
-\fs24 \cf3 \cb4 echo\cf5  \cf3 date\cf5  (\cf6 "d/m/Y"\cf5 ) . \cf6 "<br>"\cf5 ;\cf5 \cb1 		
-\fs32 \cf0 -> Date : 21/02/2018\
-\
-
-\fs24 \cf3 \cb4 echo\cf5  \cf3 strpos\cf5 (\cf8 $email1\cf5 , \cf6 "@"\cf5 );\cf5 \cb1 		
-\fs32 \cf0 -> retourne position de '@' dans l'email\
+\fs26 \cf3 \cb4 echo\cf5  \cf3 strpos\cf5 (\cf8 $email1\cf5 , \cf6 "@"\cf5 );\cb1 		
+\fs34 \cf0 -> retourne position de '@' dans l'email\
 \
 Si sort rien car var est 'bonjour' >\
 
-\fs24 \cf3 \cb4 var_dump\cf5 (\cf3 strpos\cf5 (\cf8 $email2\cf5 , \cf6 "@"\cf5 ));\cf5 \cb1 	
-\fs32 \cf0 -> bool(false)\
+\fs26 \cf3 \cb4 var_dump\cf5 (\cf3 strpos\cf5 (\cf8 $email2\cf5 , \cf6 "@"\cf5 ));\cb1 	
+\fs34 \cf0 -> bool(false)\
 \
 
-\fs24 \cf3 \cb4 echo\cf5  \cf3 iconv_strlen\cf5 (\cf8 $phrase\cf5 ); \cf5 \cb1 		
-\fs32 \cf0 -> retourne taille chaine\
+\fs26 \cf3 \cb4 echo\cf5  \cf3 iconv_strlen\cf5 (\cf8 $phrase\cf5 ); \cb1 		
+\fs34 \cf0 -> retourne taille chaine\
 \
 
-\fs24 \cf3 \cb4 echo\cf5  \cf3 substr\cf5 (\cf8 $texte\cf5 , \cf9 0\cf5 , \cf9 20\cf5 ) . \cf6 "... <a href=''> Lire la suite </a>"\cf5 ;\cf5 \cb1 	
-\fs32 \cf0 -> retourne les 20 premiers car. de chaine\
+\fs26 \cf3 \cb4 echo\cf5  \cf3 substr\cf5 (\cf8 $texte\cf5 , \cf9 0\cf5 , \cf9 20\cf5 ) . \cf6 "... <a href=''> Lire la suite </a>"\cf5 ;\cb1 	
+\fs34 \cf0 -> retourne les 20 premiers car. de chaine\
 
-\fs24 \cf5 \
+\fs26 \cf5 \
+\pard\pardeftab720\sl360\partightenfactor0
 
-\fs32 \cf0 \
+\f2 \cf3 \cb4 count\cf5 (\cf8 $couleur\cf5 );
+\f1 \cb1 				
+\fs34 \cf0 -> nb de ..
+\f2\fs26 \cf5 \
+\cf3 \cb4 sizeof\cf5 (\cf8 $couleur\cf5 );
+\f1 \cb1 				
+\fs34 \cf0 -> nb caract.\
+
+\f2\fs26 \cf3 \cb4 cho\cf5  \cf3 implode\cf5 (\cf6 "-"\cf5 , \cf8 $couleur\cf5 );
+\f1 \cb1 		
+\fs34 \cf0 -> coul1-coul2-\'85
+\f2\fs26 \cf5 \
 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 FONCTIONS UTILISATEUR
+\b0\fs34 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf7 \cb4 function\cf5  \cf3 separation\cf5 ()\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\cb4     \cf3 echo\cf5  \cf6 "<hr><hr><hr>"\cf5 ;\cb1 \
+\cb4 \}\cb1 \
+\cf3 \cb4 separation\cf5 ();\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf7 \cb4 function\cf5  \cf3 appliqueTva\cf5 (\cf8 $nombre\cf5 )
+\f1 \cb1 		
+\fs34 \cf0 -> Var. de r\'e9ception\'b0
+\f2\fs26 \cf5 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\cb4     \cf10 return\cf5  \cf8 $nombre\cf5 *\cf9 1.2\cf5 ;\cb1 \
+\cb4 \}\cb1 \
+\cf3 \cb4 echo\cf5  \cf3 appliqueTva\cf5 (\cf9 500\cf5 ) . \cf6 "<br>"\cf5 ; \cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf7 \cb4 function\cf5  \cf3 exometeo\cf5 (\cf8 $saison\cf5 ,\cf8  $temperature\cf5 )\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 "Nous sommes en \cf8 $saison\cf6  et il fait \cf8 $temperature\cf6 "\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 if\cf5  (\cf8 $temperature\cf5  > \cf9 1\cf5  || \cf8 $temperature\cf5  < -\cf9 1\cf5 )\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 " degr\'e9s<br>"\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 else\cf5 \cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 " degr\'e9<br>"\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \}\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 BOUCLES
+\b0\fs34 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs20 \cf0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+\fs34 WHILE\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf8 \cb4 $i\cf5  = \cf9 0\cf5 ;\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf10 \cb4 while\cf5 (\cf8 $i\cf5  < \cf9 3\cf5 )\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 "\cf8 $i\cf6 ---"\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf8 \cb4 $i\cf5 ++;\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \}\cb1 \
 \
+\cf3 \cb4 echo\cf5  \cf6 "<br>"\cf5 ;\cb1 \
+\cf8 \cb4 $j\cf5  = \cf9 0\cf5 ;\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf10 \cb4 while\cf5 (\cf8 $j\cf5  < \cf9 3\cf5 )\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 if\cf5  (\cf8 $j\cf5  == \cf9 2\cf5 )\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf8 $j\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 else\cf5 \cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 "\cf8 $j\cf6 ---"\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf8 \cb4 $j\cf5 ++;\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \}\cb1 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs20 \cf0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+\fs34 FOR\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf8 \cb4 $z\cf5  = \cf9 0\cf5 ;\cb1 \
+\cf3 \cb4 echo\cf5  \cf6 '<table border=1>'\cf5 ;\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 for\cf5 (\cf8 $ligne\cf5  = \cf9 0\cf5 ; \cf8 $ligne\cf5  < \cf9 10\cf5 ; \cf8 $ligne\cf5 ++)\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<tr>'\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf10 \cb4 for\cf5  (\cf8 $cellule\cf5  = \cf9 0\cf5 ; \cf8 $cellule\cf5  < \cf9 10\cf5 ; \cf8 $cellule\cf5 ++)\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 			
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<td>'\cf5  . \cf8 $z\cf5  . \cf6 '</td>'\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 			
+\f2\fs26 \cf8 \cb4 $z\cf5 ++;\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '</tr>'\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf3 \cb4 echo\cf5  \cf6 '</table>'\cf5 ;\cb1 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs20 \cf0 \
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -  
+\fs34 FOREACH
+\fs20 \
 \
-\
-\
-\
-\
-\
-\
-\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf10 \cb4 foreach\cf5 (\cf8 $tab\cf5  as \cf8 $info\cf5 )\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\cb4     \cf3 echo\cf5  \cf8 $info\cf5  . \cf6 "<br>"\cf5 ;\cb1 \
+\cb4 \} \cb1 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs20 \cf0 \
 \
 \
 
-\fs24 \cf5 \
+\fs34 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 TABLEAUX = ARRAY
+\b0\fs34 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf5 \
+\cf8 \cb4 $liste\cf5  = \cf3 array\cf5 (\cf6 "Gr\'e9gory"\cf5 , \cf6 "John"\cf5 , \cf6 "Andrei"\cf5 ,\cf6 "Adeline"\cf5 );\cb1 \
+\cf3 \cb4 echo\cf5  \cf8 $liste\cf5 ;
+\f1\fs34 \cf0 \cb1 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs20 \cf0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -  
+\fs34 TABLO MULTIDIMENSIONNEL\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<hr>'\cf5 ;\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf10 \cb4 foreach\cf5 (\cf8 $tab_multi\cf5  as \cf8 $sousTablo\cf5  => \cf8 $valeurs\cf5 )\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 foreach\cf5 (\cf8 $valeurs\cf5  as \cf8 $indice\cf5  => \cf8 $valeur\cf5 )\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf8 $valeur\cf5  . \cf6 "<br>"\cf5 ;     \cf11 // affiche nom prenom\cf5 \cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \}
+\f1\fs34 \cf0 \cb1 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 PDO
+\b0\fs34 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b \cf12 1. CONNEXION BDD\cf13 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf8 \cb4 $pdo\cf5  = \cf7 new\cf5  \cf14 PDO\cf5 (\cf6 'mysql:host=localhost;dbname=entreprise'\cf5 , \cf6 'root'\cf5 , \cf6 'root'\cf5 , \cf3 array\cf5 (PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => \cf6 'SET NAMES UTF8'\cf5 ));\cb1 \
+
+\f1\fs34 \cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b \cf12 2. M\'e9thodes $pdo / EXEC - INSERT, UPDATE .. SET, DELETE\cf0 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b0 \cf0 \
+
+\f2\fs26 \cf3 \cb4 echo\cf6 '<pre>'\cf5 ; \cf3 print_r\cf5 (\cf3 get_class_methods\cf5 (\cf8 $resultat\cf5 )); \cf3 echo\cf5  \cf6 '</pre>'\cf5 ;
+\f1 \cb1 	
+\fs34 \cf0 -> pour les voir
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 \
+
+\f2\fs26 \cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 exec\cf5 (\cf6 "\cf7 INSERT\cf6  \cf7 INTO\cf6  employes (prenom, nom) \cf7 VALUES\cf6  ('Gr\'e9gory', 'LACROIX', \cf9 15000\cf6 )"\cf5 );\cb1 \
+\cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 exec\cf5 (\cf6 "\cf7 UPDATE\cf6  employes \cf7 SET\cf6  salaire \cf5 =\cf6  \cf9 1300\cf6  \cf7 WHERE\cf6  id_employes \cf5 =\cf6  \cf9 350\cf6 "\cf5 );\cb1 \
+\cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 exec\cf5 (\cf6 "\cf7 DELETE\cf6  \cf7 FROM\cf6  employes \cf7 WHERE\cf6  id_employes \cf5 =\cf6  \cf9 350\cf6 "\cf5 );\cb1 \
+\cb4     \cf3 echo\cf5  \cf6 "Nombre de \'85 affect\'e9 : \cf8 $resultat\cf6 "\cf5  . \cf6 '<br>'\cf5 ;
+\f1  \cb1 				
+\fs34 \cf0 -> INT\
+\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b \cf12 3. M\'e9thodes $pdo / QUERY - SELECT + FETCH_ASSOC\cf0 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 query\cf5 (\cf6 "\cf7 SELECT\cf6  \cf5 *\cf6  \cf7 FROM\cf6  employes \cf7 WHERE\cf6  id_employes \cf5 =\cf6  \cf9 699\cf6 "\cf5 );\cb1 \
+\cf8 \cb4 $employe\cf5  = \cf8 $resultat\cf5 ->\cf3 fetch\cf5 (PDO::FETCH_ASSOC);
+\f1 \cb1 		
+\fs34 \cf0 -> ARRAY\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf0 \
+\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b \cf12 4. M\'e9thodes $pdo / QUERY - SELECT + WHILE + FETCH_ASSOC
+\f3\fs26 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f2\b0 \cf5 \
+\cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 query\cf5 (\cf6 "\cf7 SELECT\cf6  \cf5 *\cf6  \cf7 FROM\cf6  employes"\cf5 );
+\f1\fs34 \cf0 \cb1   -> objet PDOStatement => methods fetch, fetchall, execute, rowCount\'85
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf3 \cb4 echo\cf6 '<pre>'\cf5 ; \cf3 var_dump\cf5 (\cf8 $resultat\cf5 ); \cf3 echo\cf5  \cf6 '</pre>'\cf5 ;\cb1 \
+\
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 'Nombre d\cf15 \\'\cf6 employe(s) : '\cf5  . \cf8 $resultat\cf5 ->\cf3 rowCount\cf5 () . \cf6 "<br>"\cf5 ;
+\f1\fs34 \cf0 \cb1   -> nb lg retourn\'e9 par requ\'eate 
+\f2\fs26 \cf5 \
+\
+\cf10 \cb4 while\cf5 (\cf8 $contenu\cf5  = \cf8 $resultat\cf5 ->\cf3 fetch\cf5 (PDO::FETCH_ASSOC))
+\f1 \cb1 	
+\fs34 \cf0 -> ARRAY/employ\'e9 \'e0 chq boucle
+\f2\fs26 \cf5 \
+\cb4 \{\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 foreach\cf5 (\cf8 $contenu\cf5  as \cf8 $indice\cf5  => \cf8 $valeur\cf5 )
+\f1 \cb1 			
+\fs34 \cf0 -> chq lg de chq ARRAY \'e0 chq boucle
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf8 $indice\cf5  . \cf6 ' : '\cf5  . \cf8 $valeur\cf5  . \cf6 '<br>'\cf5 ;
+\f1 \cb1 	
+\fs34 \cf0 -> ARRAYS de tous 
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<hr>'\cf5 ;\cb1 \
+\cb4 \}\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
+			
+\f2\fs26 \cf5 \cb4 ->\cf3 fetch\cf5 (PDO::FETCH_BOTH)
+\f1 \cb1 		
+\fs34 \cf0 -> ARRAY index numeric + nom\
+			
+\f2\fs26 \cf5 \cb4 ->\cf3 fetch\cf5 (PDO::FETCH_OBJ)
+\f1 \cb1 		
+\fs34 \cf0 -> OBJET ac nom des champs\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+\cf0 \
+\
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b \cf12 5. M\'e9thodes $pdo / QUERY -  FETCH_ALL + FETCH_ASSOC\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\b0\fs26 \cf5 \
+\cf8 \cb4 $donnees\cf5  = \cf8 $resultat\cf5 ->\cf3 fetchAll\cf5 (PDO::FETCH_ASSOC);
+\f1 \cb1 		
+\fs34 \cf0 -> ARRAY index\'e9/employ\'e9
+\f2\fs26 \cf5 \
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b \cf12 6. M\'e9thodes $pdo / QUERY -  FETCH + BDD\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 query\cf5 (\cf6 "SHOW DATABASES"\cf5 );\cb1 \
+\cf3 \cb4 echo\cf5  \cf6 '<ul>'\cf5 ;\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 while\cf5 (\cf8 $bdd\cf5  = \cf8 $resultat\cf5 ->\cf3 fetch\cf5 (PDO::FETCH_ASSOC))\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<li>'\cf5  . \cf8 $bdd\cf5 [\cf6 'Database'\cf5 ] . \cf6 '</li> '\cf5 ;
+\f1 \cb1 	
+\fs34 \cf0 -> Liste des BDD
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf3 \cb4 echo\cf5  \cf6 '</ul>'\cf5 ;
+\f1\fs34 \cf0 \cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\b \cf12 7. M\'e9thodes $pdo / QUERY -  TABLE\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 query\cf5 (\cf6 "\cf7 SELECT\cf6  \cf5 *\cf6  \cf7 FROM\cf6  employes"\cf5 );\cb1 \
+\
+\cf3 \cb4 echo\cf5  \cf6 '<table border=1><tr>'\cf5 ;\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 for\cf5 (\cf8 $i\cf5  = \cf9 0\cf5 ; \cf8 $i\cf5  < \cf8 $resultat\cf5 ->\cf3 columnCount\cf5 (); \cf8 $i\cf5 ++)
+\f1 \cb1 		
+\fs34 \cf0 -> nb de col de la table
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf8 \cb4 $colonne\cf5  = \cf8 $resultat\cf5 ->\cf3 getColumnMeta\cf5 (\cf8 $i\cf5 );
+\f1 \cb1 		
+\fs34 \cf0 ->  ARRAY de chq col
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<td>'\cf5  . \cf8 $colonne\cf5 [\cf6 'name'\cf5 ] . \cf6 '</td>'\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '</tr>'\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf10 \cb4 while\cf5 (\cf8 $ligne\cf5  = \cf8 $resultat\cf5 ->\cf3 fetch\cf5 (PDO ::FETCH_ASSOC))
+\f1 \cb1 	
+\fs34 \cf0 ->  ARRAY de chq employ\'e9
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<tr>'\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 			
+\f2\fs26 \cf10 \cb4 foreach\cf5 (\cf8 $ligne\cf5  as \cf8 $informations\cf5 )\cb1 \
+
+\f1\fs34 \cf0 			
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 				
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '<td>'\cf5  . \cf8 $informations\cf5  . \cf6 '</td>'\cf5 ;
+\f1 \cb1 	
+\fs34 \cf0 ->  Aff. successivt val. des cellules
+\f2\fs26 \cf5 \
+
+\f1\fs34 \cf0 			
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf3 \cb4 echo\cf5  \cf6 '</tr>'\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf3 \cb4 echo\cf5  \cf6 '</table>'\cf5 ;\cb1 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b \cf12 8. PREPARE + BINDVALUE + EXECUTE\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b0 \cf0 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf8 \cb4 $nom\cf5  = \cf6 "Blanchet"\cf5 ;\cb1 \
+\cf8 \cb4 $resultat\cf5  = \cf8 $pdo\cf5 ->\cf3 prepare\cf5 (\cf6 '\cf7 SELECT\cf6  \cf5 *\cf6  \cf7 FROM\cf6  employes \cf7 WHERE\cf6  nom \cf5 =\cf6  :nom'\cf5 );
+\f1 \cb1 	
+\fs34 \cf0 ->  requ\'eate + d\'e9cl\'b0 marqueur
+\f2\fs26 \cf5 \
+\cf8 \cb4 $resultat\cf5 ->\cf3 bindValue\cf5 (\cf6 ':nom'\cf5 , \cf8 $nom\cf5 , PDO::PARAM_STR);
+\f1 \cb1 				
+\fs34 \cf0 ->  attir\'e9\'b0 val. au marqueur
+\f2\fs26 \cf5 \
+\cf8 \cb4 $resultat\cf5 ->\cf3 execute\cf5 ();
+\f1 \cb1 										
+\fs34 \cf0 ->  ex\'e9c\'b0 requ\'eate
+\f2\fs26 \cf5 \
+\
+\cf8 \cb4 $donnees\cf5  = \cf8 $resultat\cf5 ->\cf3 fetch\cf5 (PDO::FETCH_ASSOC);
+\f1 \cb1 					
+\fs34 \cf0 ->  assos. m\'e9thode fetch pr > ARRAY r\'e9sultat
+\f2\fs26 \cf5 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
+\
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\b\fs50 \cf0 CLASSE & OBJET 
+\b0\fs34 = regroupe PROPRI\'c9T\'c9S (= variables) + METHODES (= fonctions) d\'e9clar\'e9es\
+  \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97 \
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs26 \cf5 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf7 \cb4 class\cf5  \cf14 Etudiant\cf5 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \{\cb1 \
+\pard\pardeftab720\sl288\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf7 \cb4 public\cf5  \cf8 $prenom\cf5  = \cf6 "Gr\'e9gory"\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf7 \cb4 public\cf5  \cf8 $age\cf5  = \cf9 25\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf7 \cb4 public\cf5  \cf7 function\cf5  \cf3 Pays\cf5 ()\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \{\cb1 \
+
+\f1\fs34 \cf0 		
+\f2\fs26 \cf10 \cb4 return\cf5  \cf6 "France"\cf5 ;\cb1 \
+
+\f1\fs34 \cf0 	
+\f2\fs26 \cf5 \cb4 \}\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 \cb4 \}\cb1 \
+\cf8 \cb4 $objet\cf5  = \cf7 new\cf5  \cf14 Etudiant\cf5 (); \cb1 \
+\pard\tx2265\tx3388\tx4536\tx5662\tx6780\tx7871\pardeftab720\sl336\slmult1\partightenfactor0
+
+\f1\fs34 \cf0 \
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl336\slmult1\partightenfactor0
+
+\fs26 \cf5 \
 		}

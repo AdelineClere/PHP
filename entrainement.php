@@ -9,7 +9,7 @@
 </style>
 
 <!-- -------------------------------
-        ECRITURE 1 AFFICHAGE
+        ⚠️ ECRITURE 1 AFFICHAGE
 --------------------------------- -->
 <h2>Ecriture et affichage</h2>
 <!-- nous pouvons écrire du html dans un fichier ayant l'extension php, mais pas l'inverse -->
@@ -25,7 +25,7 @@ echo '<hr><h2>Commentaires</h2>';
 <!-- on peut repartir sur du html à tout moment, et autant de fois que l'on veut !
 = possible de fermer et ré-ouvrir php pour mélanger du code html et PHP -->
 
-<?= "Allo" ?>   <!-- = remplace echo -->
+<?= "Allo" ?>   <!--  ⚠️ = remplace echo -->
 
 <?php
 echo 'texte';    // Si on met pas ';' -> message d'erreur en php, et nous dit quoi !
@@ -37,7 +37,7 @@ print 'Nous sommes mercredi'; // print est une autre instruction d'affichage. Pa
 
 
 /* ---------------------
-        VARIABLES
+        ⚠️ VARIABLES
 -----------------------*/
 echo '<hr><h2>Variables : types / Déclaration / affectation </h2>';
 // Une variable est un espace nommé permettant de conserver une valeur
@@ -73,7 +73,7 @@ echo '<br>';
 
 
 /* ---------------------
-    CONCATENATION
+    ⚠️ CONCATENATION
 -----------------------*/
 echo '<hr><h2>Concaténation</h2>';
 
@@ -83,8 +83,8 @@ echo $x . $y ."<br>";    // -> Bonjour tout le monde
     // POINT DE CONCATENATION que l'on peut traduire par suivi de
     // affiche moi la valeur x suivie de valeur y ...
 
-echo "$x $y <br>";    // -> Bonjour tout le monde : entre guillemets, les variables sont évaluées
-echo '$x $y <br>';    // -> $x $y : entre quote, c'est une chaine de caractère, les variables ne sont pas évaluées
+echo "$x $y <br>";    // -> Bonjour tout le monde : ⚠️ entre guillemets, les variables sont évaluées
+echo '$x $y <br>';    // -> $x $y : ⚠️ entre quote, c'est une chaine de caractère, les variables ne sont pas évaluées
 echo 'aujourd\'hui';    // avec les simple quote, si nous envoyons une chaine de c. avec un apostrophe, 
 // cela génère une erreur, nous sommes obligés de placer un '\' pour préciser que c un apostrophe
 echo "aujourd'hui";
@@ -96,7 +96,7 @@ echo "<br>" , "coucou" , "<br>";    // ⚠️ concaténation avec une virgule : 
 
 
 /* -------------------------------------
-    CONCATENATION lors de l'AFFECTATION
+    ⚠️ CONCATENATION lors de l'AFFECTATION
 --------------------------------------*/
 echo '<hr><h2>Concaténation lors de l\'affectation</h2>';
 
@@ -111,7 +111,7 @@ echo $prenom2;  // -> Grégory Adeline : ajoute la nouvelle valeur sans remplace
 
 
 /* ---------------------
-    CONSTANTE
+    ⚠️ CONSTANTE
 -----------------------*/
 echo '<hr><h2>Constante et constante magique</h2>';
 
@@ -147,7 +147,7 @@ echo "$bleu-$blc-$rg<br>";
 
 
 /* -------------------------------
-    OPERATEURS ARITHMETIQUES
+    ⚠️ OPERATEURS ARITHMETIQUES
 ---------------------------------*/
 echo '<hr><h2>Opérateurs arithmétiques</h2>';
 
@@ -176,7 +176,7 @@ echo $a . "<br>";       // affiche 10
 
 
 /* -----------------------------------------
-    STRUCTURES CONDITIONNELLES (if/else)
+    ⚠️ STRUCTURES CONDITIONNELLES (if/else)
 -------------------------------------------*/
 echo '<hr><h2>Structures conditionnelles (if/else)</h2>';
 // isset et empty
@@ -351,7 +351,7 @@ else
 
 
 /* ----------------------------------
-    FONCTIONS PREDEFINIES
+    ⚠️ FONCTIONS PREDEFINIES
 -----------------------------------*/
 echo '<hr><h2>Fonction prédéfinie : traitement des chaines</h2>';
 //une fonction prédéfinie permet de réaliser un traitement spécifiq
@@ -360,7 +360,7 @@ echo "Date : ";
 echo date ("d/m/Y") . "<br>";  // ⚠️ ex. de fct prédéfinie retournant la date du jr.
 // Qd on utilise une fct prédéfinie, tjrs se poser la question : 
 // quels paramètres doit-on envoyer à cette fct et surtout savoir ce qu'elle retourne.
-// > Penser à consulter la doc  ! (pour voir formats de date  de la fct Date)
+// > Voir formats de date ⚠️  http://php.net/manual/fr/datetime.format.php  ⚠️ 
 
 // -------------------------------------------------------------
 $email1 = "a2line8@yahoo.fr";
@@ -407,7 +407,7 @@ echo substr($texte, 0, 20) . "... <a href=''> Lire la suite </a>";
 
 
 /* ----------------------------
-    FONCTIONS UTILISATEUR
+    ⚠️ FONCTIONS UTILISATEUR
 ------------------------------*/
 echo '<hr><h2>Fonction utilisateur</h2>';
 // Qui ne sont pas prédéfinies ds le langage, mais déclarées puis exécutées par l'utilisateur
@@ -534,7 +534,7 @@ exometeo("hiver", 15);
 
 
 /* ----------------------------
-         Les BOUCLES
+      ⚠️ Les BOUCLES
 ------------------------------*/
 echo '<hr><h2>Boucle : structure itérative</h2>';
 
@@ -645,7 +645,7 @@ echo '</table>';
 
 
 /* ----------------------------
-    TABLEAUX DE DONNEES
+    ⚠️ TABLEAUX DE DONNEES
 ------------------------------*/
 echo '<hr><h2> Tableau de données ARRAY </h2>';
 
@@ -653,7 +653,7 @@ $liste = array("Grégory", "John", "Andrei","Adeline");
 echo $liste;    //!\\ ERREUR : on ne peut pas afficher les données 
 // d'un tableau avec une instruction d'affichage classique
 
-echo '<pre>'; var_dump($liste); echo '</pre>'; // ⚠️ renvoi ça :
+echo '<pre>'; var_dump($liste); echo '</pre>';
     /*    array(4) {
             [0]=>
             string(8) "Grégory"
@@ -665,7 +665,7 @@ echo '<pre>'; var_dump($liste); echo '</pre>'; // ⚠️ renvoi ça :
             string(7) "Adeline"
         }   */
 
-echo '<pre>'; print_r($liste); echo '</pre>'; // ⚠️ renvoi ça :
+echo '<pre>'; print_r($liste); echo '</pre>'; 
     /*    Array
         (
             [0] => Grégory
@@ -680,7 +680,7 @@ echo '<pre>'; print_r($liste); echo '</pre>'; // ⚠️ renvoi ça :
 
 
 /* ----------------------------
-      BOUCLE FOREACH
+      ⚠️ BOUCLE FOREACH
 ------------------------------*/
 echo '<hr><h2> Boucle foreach pour les tableaux de données ARRAY </h2>';
 $tab[] = "France";
@@ -761,7 +761,7 @@ echo implode("-", $couleur);    // -> jaune-rouge-vert-bleu
 echo '<hr><h2> Tableaux de données ARRAY multidimensionnel </h2>';
 
 $tab_multi = array(
-    0 => array("prenom" => "Grégory", "nom" => "Lacroix"), // à l'indice prénom définie moi la valeur __> Greg...
+    0 => array("prenom" => "Grégory", "nom" => "Lacroix"), // à l'indice prénom définie moi la valeur -> Greg...
     1 => array("prenom" => "Adeline", "nom" => "Clere"),
 );
 /*
@@ -839,7 +839,7 @@ foreach($tab_multi as $sousTablo => $valeurs)
 
 
 /* ----------------------------
-        CLASSE ET OBJET
+       ⚠️ CLASSE ET OBJET
 ------------------------------*/
 echo '<hr><h2> Classe et objet </h2>';
 /*
@@ -857,7 +857,7 @@ class Etudiant              // ex : class = plan de la voiture
         return "France";
     }
 }
-$objet = new Etudiant();    //  =>️ on a un objet issu de la class Etudiant (ex : objet = toutes les pc de la voiture assemblées
+$objet = new Etudiant();    //  =>️ on a un objet issu de la class Etudiant (ex  : objet = toutes les pc de la voiture assemblées
 // ⚠️ ⚠️  NEW est un mot-clé pour INSTANCIER ⚠️ ⚠️ la class et en faire un objet ⚠️ ⚠️  
 // Ce qui nous permet de la déployer afin que l'on puisse s'en servir. 
 // On se sert de ce qui est dans la class via l'objet.

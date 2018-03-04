@@ -1,7 +1,7 @@
 <?php
 echo '<h2>01. PDO : Connexion BDD </h2>';
 /****************************************/
-// ⚠️ PDO = une classe qui instancie $pdo - Ici que l'on modifie BDD qd on créé un site qui en a une ⚠️ ⚠️ ⚠️ 'root' en mdp sur Mac
+// ⚠️ PDO = une classe qui instancie $pdo - Ici que l'on modifie BDD qd on créé un site qui en a une (⚠️ ⚠️ ⚠️ 'root' en mdp sur Mac)
 $pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', 'root', array(
     PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
 ));
@@ -9,7 +9,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', 'root', array(
 
 
 echo '<pre>'; var_dump($pdo); echo '</pre>';
-// ⚠️ $pdo représente un OBJET issu de la classe PDO = instance de la classe PDO. Il représente notre BDD.
+// ⚠️ $pdo représente un OBJET issu de la classe PDO ⚠️ = instance de la classe PDO. Il représente notre BDD.
 // Créer une instance de PDO nécessite de fournir en arguments les informations de connexion à la BDD. 
 // et de pvr formuler des requêtes SQL.
         /*  object(PDO)#1 (0) {
@@ -42,10 +42,12 @@ echo '<pre>'; print_r(get_class_methods($pdo)); echo'</pre>';
                 [16] => getAvailableDrivers
             )   */
 
+            
 
 echo '<hr>';
+//------------------------------------------------------------------------------------------------------------
 echo '<h2>02. PDO : EXEC - INSERT, UPDATE, DELETE </h2>';
-/*************************************************/
+//------------------------------------------------------------------------------------------------------------
 // Formuler une requête pour vous insérer dans la table employes
 /*
 ⚠️  INSERT
@@ -78,8 +80,9 @@ $resultat = $pdo->exec("DELETE FROM employes WHERE prenom = 'Grégory'");
 
 
 echo '<hr>';
+//------------------------------------------------------------------------------------------------------------
 echo '<h2>03. QUERY - SELECT + FETCH_ASSOC (1 seul résultat) </h2>';
-/******************************************************************/
+//------------------------------------------------------------------------------------------------------------
 
 $resultat = $pdo->query("SELECT * FROM employes WHERE id_employes = 699");
     echo'<pre>'; var_dump($resultat); echo '</pre>';
@@ -193,8 +196,9 @@ foreach($employe as $indice => $valeur) // on définie une valeur qd les indices
 
 
 echo '<hr>';
+//------------------------------------------------------------------------------------------------------------
 echo '<h2>04. PDO : QUERY - SELECT + WHILE + FETCH_ASSOC (plusieurs résultat) </h2>';
-/*****************************************************************************/
+//------------------------------------------------------------------------------------------------------------
 
 $resultat = $pdo->query("SELECT * FROM employes"); // ⚠️ on pioche ds class PDO ac la méthode query
     echo'<pre>'; var_dump($resultat); echo '</pre>';    // => retourne objet class PDOStatement
@@ -234,8 +238,9 @@ while($contenu = $resultat->fetch(PDO::FETCH_ASSOC))  // ⚠️ > donne que le 1
 
 
 echo '<hr>';
+//------------------------------------------------------------------------------------------------------------
 echo '<h2>05. PDO : QUERY - FETCHALL + FETCH_ASSOC </h2>';
-/*********************************************************/
+//------------------------------------------------------------------------------------------------------------
 
 $resultat = $pdo->query("SELECT * FROM employes");
 $donnees = $resultat->fetchAll(PDO::FETCH_ASSOC);   // ⚠️️ fetchAll = un tablo array (indexé) pour chaq employé
@@ -268,8 +273,9 @@ foreach($donnees AS $indice1 => $valeur )  // $indice = [0] (tt le contenu du 1e
 
 
 echo '<hr>';
+//------------------------------------------------------------------------------------------------------------
 echo '<h2>06. PDO : QUERY - FETCH + BDD </h2>';
-/*********************************************/
+//------------------------------------------------------------------------------------------------------------
 
 // EXO : Afficher la liste des BDD puis la mettre dans une liste ul li.
 $resultat = $pdo->query("SHOW DATABASES");  // => ⚠️️ donne objet de la class PDOStatemment, dc :
@@ -289,8 +295,9 @@ echo '</ul>';
 
 
 echo '<hr>';
+//------------------------------------------------------------------------------------------------------------
 echo '<h2>07. PDO : QUERY - TABLE </h2>';
-/****************************************/
+//------------------------------------------------------------------------------------------------------------
 // EXO : Afficher toute la table employes en html :
 // ⚠️️ On ne peut pas associer 2 fois la même méthode sur le même résultat !! 
 //     = pas poss associer 2 fetch(PDO::FETCH_ASSOC) sur même résultat.
@@ -303,7 +310,7 @@ echo '<table border=1><tr>';
         $colonne = $resultat->getColumnMeta($i);    // ⚠️️ ⚠️️ getColumnMeta() = méthode issue de la class PDOStatement qui récolte les infos des champs/colonnes de la table, pour chaque tour de boucle, $colonne contient un tablo ARRAY ac les infos d'une colonne.
 
         // echo '<pre>'; print_r($colonne);echo '</pre>';
-        echo '<td>' . $colonne['name'] . '</td>';   // on a créé la 1ère lg
+        echo '<th>' . $colonne['name'] . '</th>';   // on a créé la 1ère lg
         // On va crocheter à l'indice 'name' pour afficher le nom des colonnes.
     }
     echo '</tr>';
@@ -345,8 +352,9 @@ echo "<table border=1><tr>";
 
 
 echo '<hr>';
+//------------------------------------------------------------------------------------------------------------
 echo '<h2>08. PREPARE + BINDVALUE + EXECUTE </h2>';
-/*************************************************/
+//------------------------------------------------------------------------------------------------------------
 // (=> on créée un genre de fct où l'on changera juste le nom du marqueur pour changer son utilité)
 // ⚠️️ Préparation de la requête :
 // ⚠️️ Soulage le serveur et la BDD à l'exécution, previens pour les injections SQL et les failles XSS
@@ -370,7 +378,7 @@ $donnees = $resultat->fetch(PDO::FETCH_ASSOC);
 // Une fois exécutée, ⚠️️ on associe une méthode pour rendre le résultat exploitable.
 echo '<pre>'; print_r($donnees); echo '</pre>';     
 
-//------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------
 
 $resultat->bindValue(':nom', 'Grand', PDO::PARAM_STR);    // ⚠️️ On associe une nvlle valeur au marqueur
 

@@ -9,7 +9,7 @@ echo '<pre>'; print_r($_GET); echo '</pre>'; // superglobal ⚠️  $_GET aura t
                     [prix] => 90
                 )   */
 
-// Afficher les données pdts en affichage conventionnel
+// Afficher les données pdts en affichage conventionnel + ne pas avoir l'id_pdt à l'affichage
 
 if($_GET)  // = si on a info dans url on peut...
 {
@@ -23,21 +23,6 @@ if($_GET)  // = si on a info dans url on peut...
         }
     }
 }
-
-// faire en sorte de ne pas avoir l'id_pdt à l'affichage
-
-if($_GET)  // = si on a info dans url on peut...
-{
-    echo '<h1>Voici le détail du produit n° ' . $_GET['id_produit'] . '</h1>';
-
-    foreach($_GET as $indice => $valeur)
-    {
-
-            echo $indice . ' : ' . $valeur . "<br>";
-
-    }
-}
-
 
 
 

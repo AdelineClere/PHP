@@ -18,7 +18,7 @@ if(internauteEstConnecte())
 
 
 
-//⚠️ ⚠️ ⚠️ -------------  VERIF SAISIES deCONNEXION
+//⚠️ ⚠️ ⚠️ -------------  VERIF SAISIES de CONNEXION
 if($_POST)  // qd le formulaire est soumis
 {
     $resultat = $pdo->query("SELECT * FROM membre WHERE pseudo = '$_POST[pseudo]'"); //⚠️ on verif que pseudo est dans la BDD

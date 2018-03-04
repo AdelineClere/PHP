@@ -12,7 +12,7 @@
 
 require_once("fonction.inc.php");
                
-if(isset($_GET['choix']))       // on récup choix dans l'url
+if(isset($_GET['choix']))       // ⚠️ on récup choix dans l'url
 {
     echo '<pre>'; print_r($_GET); echo '</pre>'; 
     echo'Fruit recup : ' . $_GET['choix'] . '<br>'; // 3. fruit recup = choix fait

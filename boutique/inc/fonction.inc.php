@@ -71,7 +71,7 @@ function ajouterProduitDansPanier($titre, $id_produit, $quantite, $prix) //⚠�
     creationDuPanier(); // On contrôle si le panier existe ou non ds la session 
 
     $position_produit = array_search($id_produit, $_SESSION['panier']['id_produit']);   
-    // Méthode ' array_search ' vérifie si id_pdt ajouté existe déjà dans session et A QUEL INDICE (+ précis que rowCount !) > pr rajouter Qtt au même indice et pas créer new indice à chq fois qu'on ajoute le pdt !!
+    // Méthode ' array_search ' ⚠️ vérifie si id_pdt ajouté existe déjà dans session et A QUEL INDICE (+ précis que rowCount !) > pr rajouter Qtt au même indice et pas créer new indice à chq fois qu'on ajoute le pdt !!
     // echo $position_produit;
 
         if($position_produit !== false) //= si pos° pdt diff de false = càd il retourne l'indice de l'id_pdt trouvé
@@ -92,7 +92,8 @@ function ajouterProduitDansPanier($titre, $id_produit, $quantite, $prix) //⚠�
 function montantTotal()
 {
     $total = 0;
-    for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)    // boucle tourne tant que des id_pdt ds session > on multiplie Qtt x prix pour chaq indice
+    for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)    
+    // boucle tourne tant que des id_pdt ds session > on multiplie Qtt x prix pour chaq indice
     {
         $total += $_SESSION['panier']['quantite'][$i] * $_SESSION['panier']['prix'][$i]; // on ajoute résultat de chq indice suivant
     }

@@ -2,12 +2,12 @@
 require_once("inc/init.inc.php");
 
 // -------------------- AJOUT PANIER --------------------
-if(isset($_POST['ajout_panier']))   // = le btn ajout-panier a été cliqué
+if(isset($_POST['ajout_panier']))   //⚠️ = le btn ajout-panier a été cliqué
 {
     // debug($_POST);  // retourne ARRAY saisies pdt ajouté
-    $resultat = $pdo->query("SELECT * FROM produit WHERE id_produit = '$_POST[id_produit]'");
-    $produit = $resultat->fetch(PDO::FETCH_ASSOC);
-    // debug($produit); // retourne ARRAY ttes les infos pdt
+    $resultat = $pdo->query("SELECT * FROM produit WHERE id_produit = '$_POST[id_produit]'");   //⚠️  recup pdts ajoutés
+    $produit = $resultat->fetch(PDO::FETCH_ASSOC);  //⚠️  > ARRAY des infos pdt
+    // debug($produit); 
 
     ajouterProduitDansPanier($produit['titre'], $_POST['id_produit'], $_POST['quantite'], $produit['prix']);
     debug($_SESSION);   // retourne en ARRAY indexé les infos commande : titre, id_pdt, Qtt, prix
@@ -34,7 +34,7 @@ require_once("inc/header.inc.php");
                 echo '<tr><td colspan="5"><div class="alert alert-danger text-center">Votre panier est vide !</div></td></tr>';
             }
             else
-            {
+            {   // ⚠️ Boucle sur SESSION PANIER pr stocker infos de chaq pdt qu'il contient
                 for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
                 {
                     echo    '<tr>';
@@ -43,7 +43,8 @@ require_once("inc/header.inc.php");
                     echo    '<td>' . $_SESSION['panier']['quantite'][$i] . '</td>';
                     echo    '<td>' . $_SESSION['panier']['prix'][$i] . ' €</td>';
                     echo    '<td>' . $_SESSION['panier']['prix'][$i] * $_SESSION['panier']['quantite'][$i] . '€</td>';
-                    // colonne supprimer (on retrouve ' suppressions ' + id ds URL)
+                    
+                    // ⚠️ colonne SUPPRIMER (on retrouve ' suppression ' + id ds URL)
                     echo    '<td>
                                 <a href="?action=suppression&id_produit=' . $_SESSION['panier']['id_produit'][$i] . '" 
                                 onClick="return(confirm(\'En êtes-vous certain ?\'));">
@@ -51,28 +52,28 @@ require_once("inc/header.inc.php");
                             </td>';
                     echo    '</tr>';
                 }
-               
+                    // ⚠️ Aff. TOTAL
                     echo '<tr><th colspan="3">Total</th><th colspan="2">' . montantTotal() . ' €</th></tr>';
 
+                    // ⚠️ CONDITION connecté > lien paiement, ou pas.
                     if(internauteEstConnecte())
                     {
                         echo    '<form method="post" action="">';
-                        echo    '<tr><td>
-                                 <input type="submit" class="col-md-12 btn btn-primary" value="Valider le paiement">
-                                </td></tr>';
+                        echo    '<tr><td colspan="5"><input type="submit" name="payer" class="col-md-12 btn btn-primary" value="valider le paiement"></td></tr>';
                         echo    '</form>';
                     }
                     else
-                    {
+                    {   // ⚠️ > connex° ou >inscript°
                          echo   '<tr><td colspan="5">
-                                    <div class="alert alert-warning text-centerVeuillez vous 
+                                    <div class="alert alert-warning text-center Veuillez vous 
                                         <a href="inscription.php"class="alert-link">inscrire</a>
                                         ou vous <a href="connexion.php" class="alert-link">connecter</a>
                                         pour valider le paiement>
                                     </div>
                                 </td></tr>';
                     }
-                    echo    '<tr><td colspan="5">
+                    // ⚠️ VIDER panier
+                    echo    '<tr><td colspan="5">   
                                 <a href="?action=vider" 
                                 onClick="return(confirm(\'En êtes-vous certain ?\'));">
                                 <span class="glyphicon glyphicon-trash">
