@@ -99,3 +99,24 @@ function montantTotal()
     }
     return round($total, 2); //=> résultat arrondi à 2 chiffres
 }
+
+
+//------------------------------ RETIRER du PANIER -----------------------------------
+
+function retirerProduitDuPanier($id_produit_a_supprimer)
+{
+    $position_produit = array_search($id_produit_a_supprimer, $_SESSION['panier']['id_produit']); 
+    // trouve moi ds la session l'indice pdt que je veux suppr 
+    // fct° prédéfinie ⚠️array_search pourcomparer puis retourner indice où est le pdt à suppr ds la session 'panier'
+
+    if($position_produit !== false) 
+    // si var $position_pdt retourne une val diff de false <=> indice bien trouvé ds session 'panier'
+    {
+        array_splice($_SESSION['panier']['titre'], $position_produit, 1);   
+        array_splice($_SESSION['panier']['id_produit'], $position_produit, 1);
+        array_splice($_SESSION['panier']['quantite'], $position_produit, 1);
+        array_splice($_SESSION['panier']['prix'], $position_produit, 1);
+        //⚠️array_splice() permet de SUPPR une lg ds tablo session et REMONTE les INDICES inférieurs du tablo aux indices supérieurs (= si je suppr 1 pdt à [4] -> ts les pdts suivants remonteront tous d'un cran (d'un indice) ==> permet de réorganiser tablo panier ds la session et pas avoir trous ni indice vide)
+    }
+}
+

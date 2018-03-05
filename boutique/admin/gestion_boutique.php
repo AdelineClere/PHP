@@ -190,7 +190,7 @@ echo $content;  // ⚠️⚠️⚠️  Appelle tt le contenu stocké depuis debu
 
 // ⚠️️ Normalement faire aussi le contrôle des champs...
 
-//⚠️⚠️⚠️ ------------- AJOUT ou MODIF des pdts
+//⚠️⚠️⚠️ ------------- MODIF des pdts (> afficher infos ds champs)
 if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == 'modification'))
 {   // Formulaire HTML de table produit de la BDD (⚠️ sauf l'id produit) -->
             
@@ -200,7 +200,7 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == '
         $resultat->bindValue(':id_produit', $_GET['id_produit'], PDO::PARAM_INT);
         $resultat->execute();
             // but = recup en 1 objet : ttes les infos du pdt requis > associer méthode :
-        $produit_actuel = $resultat->fetch(PDO::FETCH_ASSOC);   // => fetch pr obtenir tablo nex pdt
+        $produit_actuel = $resultat->fetch(PDO::FETCH_ASSOC);   // => fetch pr obtenir tablo new pdt
             // debug($produit_actuel);  --> on voit le tablo du pdt à modifier   
     }
     
@@ -216,15 +216,15 @@ if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == '
     $photo = (isset($produit_actuel['photo'])) ? $produit_actuel['photo'] : ''; 
     $prix = (isset($produit_actuel['prix'])) ? $produit_actuel['prix'] : ''; 
     $stock = (isset($produit_actuel['stock'])) ? $produit_actuel['stock'] : '';
-    // ou
-        // if(isset($produit_actuel['id_produit']))
-        // {
-        //     echo $produit_actuel['id_produit'];
-        // } 
-        // else
-        // {
-        //     echo '';
-        // }    
+        /* ou
+                if(isset($produit_actuel['id_produit']))
+                {
+                    echo $produit_actuel['id_produit'];
+                } 
+                else
+                {
+                    echo '';
+                }    */
 
 // Besoin d'un champs caché pour stocker infos de ce pdt :  <input type="hidden" id="id_produit" name="id_produit">
     // -> si on met text au lieu de hidden > on voit bien que l'on est sur l'id du pdt cliqué pr modif

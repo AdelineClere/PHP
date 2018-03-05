@@ -61,18 +61,36 @@
             { // accès membre
               echo '<li><a href="' . URL . 'profil.php"> Profil </a></li>';
               echo '<li><a href="' . URL . 'boutique.php"> Boutique </a></li>';
-              echo '<li><a href="' . URL . 'panier.php"> Panier </a></li>';
+
+                if(isset($_SESSION['panier']))
+                {
+                  echo '<li><a href="' . URL . 'panier.php"> Panier <span class="badge" style="background: red;">' . array_sum($_SESSION['panier']['quantite']) . '</span></a></li>'; // ⚠️ array_sum = fait la somme des Qtt
+                }
+                else
+                {
+                  echo '<li><a href="' . URL . 'panier.php"> Panier </a></li>';
+                }
+              
               echo '<li><a href="' . URL . 'connexion.php?action=deconnexion"> Deconnexion </a></li>';
-              // ⚠️  '?' => envoi l'info de deconnexion dans l'url (cf. pg connexion : if(isset($_GET['action']) && $_GET['action']='deconnexion'))
+              // ⚠️'?' => envoi l'info de deconnexion dans l'url (cf. pg connexion : if(isset($_GET['action']) && $_GET['action']='deconnexion'))
             }
             else
             { // accès visiteur
               echo '<li><a href="' . URL . 'inscription.php"> Inscription </a></li>';
               echo '<li><a href="' . URL . 'connexion.php"> Connexion </a></li>';
               echo '<li><a href="' . URL . 'boutique.php"> Boutique </a></li>';
+
+                if(isset($_SESSION['panier']))
+                {
+                  echo '<li><a href="' . URL . 'panier.php"> Panier <span class="badge" style="background: red;">' . array_sum($_SESSION['panier']['quantite']) . '</span></a></li>';
+                }
+                else
+                {
+                  echo '<li><a href="' . URL . 'panier.php"> Panier </a></li>';
+                }
+
               echo '<li><a href="' . URL . 'panier.php"> Panier </a></li>';
             }
-
             ?>
            
           </ul>
