@@ -66,10 +66,10 @@ if(isset($_GET['action']) && $_GET['action'] == 'affichage')
                                 debug($_POST);
                                     
                                 if($_POST['commande']['id_commande'])
-                                {
-                                    $_pdo-> INSERT
-                                }
-
+                                
+                                
+                                
+                                
 
                     $content .= '</tr>';
                 }           

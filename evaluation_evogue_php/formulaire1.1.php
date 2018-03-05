@@ -2,11 +2,20 @@
 <html lang="fr">
   <head>
     <title>Formulaire</title>
+    <style>
+            label{
+                float: left;
+                width: 120px;
+                font-family: Calibri;
+            }
+        </style>
   </head>
     
     <?php
     
+    echo '<pre>'; print_r($_POST); echo '</pre>';
 
+    /*
     if($_POST)  // ⚠️ si je clique sur le bouton connexion alors on rentre dans le if
     {
         echo 'Nom : ' .  $_POST['nom'] . '<br>';
@@ -16,11 +25,9 @@
         echo 'Code postal : ' . $_POST['code_postal'] . '<br>';
         echo 'Email : ' . $_POST['email'] . '<br>';
         echo 'Sexe : ' . $_POST['sexe'] . '<br>';
-        
         echo 'Description : ' . $_POST['description'] . '<br>';
-
     }
-
+    */
 
     ?>
     
@@ -61,7 +68,7 @@
         </div><br>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+            <textarea class="form-control" rows="5" id="description" name="description"></textarea>
         </div><br>
 	
         <button type="submit" class="btn btn-primary col-md-12">Inscription</button>
