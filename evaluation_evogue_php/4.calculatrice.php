@@ -1,45 +1,6 @@
-<?php
-
-if(isset($_POST['nb1']) && (isset($_POST['nb2']))) 
-{
-
-$nb1 = $_POST['nb1'];
-$nb2 = $_POST['nb2'];
-$choix = $_POST['choix'];
-
-function adition($nb1, $nb2) 
-    {
-        return $nb1+$nb2;
-    }
-echo adition($nb1, $nb2) . "<br>";   
-
-
-    if($nb1 != 0 && $nb2 != 0)
-    {
-        if($choix = 'division' && $nb2 = 0)
-        {
-            echo 'On ne peut pas diviser par 0';
-        }
-        else
-        {
-           if($choix = 'addition')
-           {
-               echo adition($nb1+$nb2);
-           }
-        }
-    }
-    else
-    {
-        echo 'Veuillez renseigner tous les champs';
-    }
-
-    
-
-}
 
 
 
-?>
 
 <form method="post" action=""> 
     <div class="form-group">
@@ -63,7 +24,41 @@ echo adition($nb1, $nb2) . "<br>";
 </form>
 
 
+<?php
 
+if(isset($_POST['nb1']) && (isset($_POST['nb2']))) 
+{
+
+    $nb1 = $_POST['nb1'];
+    $nb2 = $_POST['nb2'];
+    $choix = $_POST['choix'];
+
+   
+    switch($choix)
+    {
+        case 'adition':
+        echo 'Résultat = ' . ($nb1+$nb2);
+        break;
+
+        case 'soustraction':
+        echo 'Résultat = ' . ($nb1-$nb2);
+        break;
+
+        case 'multiplication':
+        echo 'Résultat = ' . ($nb1*$nb2);
+        break;
+
+        case 'division':
+        echo 'Résultat = ' . ($nb1/$nb2);
+        break;
+
+        default:
+        echo '';
+        break;
+    } 
+}
+
+?>
 
 
   

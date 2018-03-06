@@ -8,7 +8,7 @@
 
     <?php
 
-    // echo '<pre>'; print_r($_GET); echo '</pre>'; 
+    echo '<pre>'; print_r($_GET); echo '</pre>'; 
 
     
     if(isset($_GET['femme']))

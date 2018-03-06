@@ -6,16 +6,6 @@ echo '<pre>'; print_r($_GET); echo '</pre>';
 
 
 
-    if(isset($_GET['choix']) && ($_GET['choix'] == ['pizza']))
-    {
-        echo 'Vous avez choisi de manger une pizza';    
-    }
-
-
-
-
-
-
     if(isset($_GET['pizza']))
     {
         echo 'Vous avez choisi de manger une pizza';
