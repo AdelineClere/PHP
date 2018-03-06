@@ -1,7 +1,7 @@
 <?php       // init = initialisation : regrp, rapatrie tout pour les autres pg !
 
 //-------------------- ⚠️ CONNEXION BDD
-$pdo = new PDO('mysql:host=localhost;dbname=boutique', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
+$pdo = new PDO('mysql:host=localhost;dbname=boutique', 'root', '', array(PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
 ));
 
 //-------------------- ⚠️ SESSION

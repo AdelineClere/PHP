@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['nb1']) && (isset($_POST['nb2'])) 
+if(isset($_POST['nb1']) && (isset($_POST['nb2']))) 
 {
 
 $nb1 = $_POST['nb1'];
@@ -66,8 +66,7 @@ echo adition($nb1, $nb2) . "<br>";
 
 
 
-    echo '<pre>'; print_r($_POST); echo '</pre>';
-    echo calculatrice($_POST['nb1'], $_POST['nb2']);
+  
 
 
 
