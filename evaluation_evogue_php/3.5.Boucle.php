@@ -1,7 +1,6 @@
 <?php
 
 
-
 for ($i = 1; $i < 10; $i++)   
 {
     $affichage = '<h2>Je m\'affiche pour la : ' . $i . 'ème fois</h2>';

@@ -1,7 +1,7 @@
 <?php
 require_once("inc/init.inc.php");
 
-// -------------------- ⚠️⚠️AJOUT PANIER --------------------
+// -------------------- ⚠️⚠️ AJOUT PANIER --------------------
 if(isset($_POST['ajout_panier']))   //⚠️ = le btn ajout-panier a été cliqué
 {
     // debug($_POST);  // retourne ARRAY saisies pdt ajouté
@@ -14,7 +14,7 @@ if(isset($_POST['ajout_panier']))   //⚠️ = le btn ajout-panier a été cliqu
 }
 
 
-//------------------- ⚠️⚠️SUPPRIMER 1 PDT --------------------- 
+//------------------- ⚠️⚠️ SUPPRIMER 1 PDT --------------------- 
 
 if(isset($_GET['action']) && $_GET['action'] == 'suppression') //=> si clic sur 'suppression'
 {   
@@ -31,7 +31,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'suppression') //=> si clic sur 
 }
 
 
-//------------------- ⚠️⚠️VIDER PANIER --------------------- 
+//------------------- ⚠️⚠️ VIDER PANIER --------------------- 
 
 if(isset($_GET['action']) && $_GET['action'] == 'vider') // si clic sur 'Vider', on rentre ds condition
 {
@@ -39,7 +39,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'vider') // si clic sur 'Vider',
 }
 
 
-//---------------------- ⚠️⚠️PAIEMENT ----------------------- 
+//---------------------- ⚠️⚠️ PAIEMENT ----------------------- 
 // debug($_SESSION);
 if(isset($_POST['payer']))  // si bien clic sur 'Valider le paiement'
 {
