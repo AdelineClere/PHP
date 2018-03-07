@@ -1,6 +1,6 @@
 <?php
 
-$pdo = new PDO('mysql:host=localhost;dbname=repertoire', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'));
+$pdo = new PDO('mysql:host=localhost;dbname=repertoire', 'root', '', array(PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'));
 
 echo '<pre>'; var_dump($pdo); echo '</pre>';
 
@@ -11,16 +11,16 @@ echo '<pre>'; print_r($_POST); echo '</pre>';
 
 if($_POST)
 {
-    $resultat = $pdo->exec("INSERT INTO annuaire (nom, prenom, telephone, profession, ville, codepostal, adresse, date_de_naissance, sexe, description) 
-    VALUES ('$_POST[nom]', '$_POST[prenom]', '$_POST[telephone]', '$_POST[profession]', '$_POST[ville]', '$_POST[codepostal]', '$_POST['adresse]', '$_POST[date_de_naissance]', '$_POST[sexe]', '$_POST[description]')
-    ");  
+   $resultat = $pdo->exec("INSERT INTO annuaire (nom, prenom, telephone, profession, ville, codepostal, adresse, date_de_naissance, description) VALUES ('$_POST[nom]', '$_POST[prenom]','$_POST[telephone]','$_POST[profession]','$_POST[ville]','$_POST[codepostal]','$_POST[adresse]','$_POST[date_de_naissance]','$_POST[description]')");
 
     echo '<div style="background: green; color: #fff; padding: 10px; text-align: center; border-radius: 5px; width: 
     200px;">Enregistrement OK !!</div>';
+
+    echo "Nombre d'enregistrement affecté par l'insert : $resultat" . '<br>';
     
 }
 
-echo "Nombre d'enregistrement affecté par l'insert : $resultat" . '<br>';
+
 
 
 
@@ -79,7 +79,7 @@ echo "Nombre d'enregistrement affecté par l'insert : $resultat" . '<br>';
         </div><br>
         <div class="form-group">
             <label for="date_de_naissance">Date de naissance</label>
-            <input id="date" type="date">
+            <input id="date" type="date" name="date_de_naissance">
         </div><br><br>
         <div class="form-group">
             <label for="sexe">Sexe</label>
