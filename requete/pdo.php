@@ -2,7 +2,7 @@
 echo '<h2>01. PDO : Connexion BDD </h2>';
 /****************************************/
 // ⚠️ PDO = une classe qui instancie $pdo - Ici que l'on modifie BDD qd on créé un site qui en a une (⚠️ ⚠️ ⚠️ 'root' en mdp sur Mac)
-$pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', 'root', array(
+$pdo = new PDO('mysql:host=localhost;dbname=entreprise', 'root', '', array(
     PDO::ATTR_ERRMODE => PDO :: ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
 ));
 // arguments : 1 (serveur + bdd), 2 (identifiant), 3 (mdp), 4 (options)

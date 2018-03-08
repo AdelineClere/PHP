@@ -54,7 +54,7 @@ function internauteEstConnecteEtEstAdmin()  // m'indique si le membre est admin
 //------------------------------ PANIER ------------------------------------
 
 // 1. On prépare SESSION = les contenants
-function creationDuPAnier()
+function creationDuPanier()
 {
     if(!isset($_SESSION['panier']))  //⚠️ Si indice panier pas définie (= encore rien d'ajouté ds panier) > le créer
     {
